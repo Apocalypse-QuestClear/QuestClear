@@ -1,0 +1,108 @@
+.state-home {
+    .home-container {
+        position: relative;
+        width: 100%;
+
+        .home-bg, .home-content-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .home-bg-0 {
+            transform: scale(1.02, 1.02);
+        }
+
+        .home-content-container {
+            transition: opacity .5s ease-in-out;
+
+            &.ng-enter {
+                opacity: 0;
+            }
+
+            &.ng-enter-active {
+                opacity: 1;
+            }
+
+            &.ng-leave {
+                opacity: 1;
+            }
+
+            &.ng-leave-active {
+                opacity: 0;
+            }
+        }
+    }
+
+    .home-content {
+        position: relative;
+        margin: auto;
+    }
+}
+
+.state-home-welcome {
+    position: relative;
+    top: 100px;
+    width: 800px;
+    color: white;
+
+    .center-block {
+        text-align: center;
+        animation: block-onload 2s ease-in-out;
+
+        @keyframes block-onload {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .elevated-headline {
+            margin-top: 0;
+            margin-bottom: 0;
+            font-size: 76px;
+            line-height: 1.10574;
+            font-weight: 400;
+        }
+
+        .elevated-subhead {
+            margin-top: 0;
+            margin-bottom: 0.62em;
+            font-size: 42px;
+            line-height: 1.09091;
+            font-weight: 300;
+        }
+
+        .intro {
+            font-size: 22px;
+            line-height: 1.59091;
+            font-weight: 300;
+        }
+
+        .login-button {
+            padding: 5px 20px;
+            animation: botton-onload 2.5s linear;
+
+            @keyframes botton-onload {
+                0% {
+                    opacity: 0;
+                }
+                80% {
+                    opacity: 0;
+                }
+                100% {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
