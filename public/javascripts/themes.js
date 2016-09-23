@@ -7,5 +7,5 @@ angular.module('QuestClear').config(function($mdThemingProvider) {
         .warnPalette('red');
 
     $mdThemingProvider.theme('homeTheme')
-        //.primaryPalette('blue');
+        .primaryPalette('blue');
 });

@@ -1,3 +1,32 @@
-<div class="state-home-register home-content">
-
+<div class="state-home-register home-content" md-theme="homeTheme">
+    <div layout="column" ng-cloak class="form md-inline-form md-whiteframe-z1">
+        <md-toolbar class="md-primary md-hue-2 section-toolbar">
+            <div class="md-toolbar-tools">
+                <h3>注册</h3>
+            </div>
+        </md-toolbar>
+        <md-content class="section-content">
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block input-container" flex-gt-sm>
+                    <label>用户名</label>
+                    <input ng-model="username" placeholder=" ">
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block input-container" flex-gt-sm>
+                    <label>密码</label>
+                    <input type="password" ng-model="password" placeholder=" ">
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
+                <md-input-container class="md-block input-container" flex-gt-sm>
+                    <label>确认密码</label>
+                    <input type="password" ng-model="password" placeholder=" ">
+                </md-input-container>
+            </div>
+            <div layout-gt-sm="row">
+                <md-button class="md-raised md-primary" flex-gt-sm>注册</md-button>
+            </div>
+        </md-content>
+    </div>
 </div>
