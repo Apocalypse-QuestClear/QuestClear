@@ -1,9 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.json({ message: 'hi' });
-});
+router.use('/api', require(__base + 'api'));
+router.use('/mock', require(__base +  'mock'));
 
 module.exports = router;

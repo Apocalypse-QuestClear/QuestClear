@@ -1,6 +1,6 @@
-<div class="state-home-login home-content" md-theme="homeTheme">
+<div class="state-home-login home-content" md-theme="home">
     <div layout="column" ng-cloak class="form md-inline-form md-whiteframe-z1">
-        <md-toolbar class="md-primary md-hue-2 section-toolbar">
+        <md-toolbar class="md-primary md-hue-1 section-toolbar">
             <div class="md-toolbar-tools">
                 <h3>登录</h3>
             </div>
@@ -18,8 +18,11 @@
                     <input type="password" ng-model="password" placeholder=" ">
                 </md-input-container>
             </div>
+            <div ng-if="message" class="warning" layout-gt-sm="row">
+                <p>{{message}}</p>
+            </div>
             <div layout-gt-sm="row">
-                <md-button class="md-raised md-primary" flex-gt-sm>登录</md-button>
+                <md-button class="md-raised md-accent" flex-gt-sm ng-click="login()" ng-disabled="waiting">{{!waiting ? '登录' : '正在登录...'}}</md-button>
             </div>
         </md-content>
     </div>

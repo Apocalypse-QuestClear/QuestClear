@@ -18,7 +18,9 @@
     "express": "~4.13.4",
     "jquery": "^3.1.0",
     "less-middleware": "1.0.x",
+    "lodash": "^4.16.2",
     "morgan": "~1.7.0",
+    "request": "^2.75.0",
     "serve-favicon": "~2.3.0"
   }
 }

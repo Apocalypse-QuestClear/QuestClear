@@ -14,8 +14,10 @@
     <script src="/node_modules/angular-route/angular-route.js"></script>
     <script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="javascripts/app.js"></script>
+    <script src="javascripts/config.js"></script>
     <script src="javascripts/routes.js"></script>
     <script src="javascripts/themes.js"></script>
+    <script src="javascripts/services/request.js"></script>
     <script src="javascripts/controllers/MainController.js"></script>
     <script src="javascripts/controllers/home/HomeController.js"></script>
     <script src="javascripts/controllers/home/WelcomeController.js"></script>
@@ -25,7 +27,7 @@
 <body ng-app="QuestClear">
 
 <div ng-controller="MainController">
-    <md-toolbar md-theme="navbarTheme" class="navbar md-primary md-hue-1">
+    <md-toolbar md-theme="white" class="navbar md-primary md-hue-1">
         <div class="md-toolbar-tools">
             <md-button class="logo" ui-sref="home.welcome">Quest Clear</md-button>
             <!-- fill up the space between left and right area -->
