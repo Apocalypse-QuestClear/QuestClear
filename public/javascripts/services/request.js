@@ -1,14 +1,17 @@
-angular.module('QuestClear').factory("request", function ($http, config) {
+angular.module('QuestClear').factory("request", function ($http, $httpParamSerializer, config) {
     var service = {};
 
     service.request = function (method, url, data) {
+        if (method === 'GET' && data) {
+            url = url + '?' + $httpParamSerializer(data);
+        }
+
         return $http({
             method: method,
             url: config.backendUrlPrefix + url,
             data: data
         }).catch(function (response) {
             if (response.data) {
-                console.log(response.data);
                 return Promise.reject(response.data.message);
             }
             else {
@@ -17,8 +20,8 @@ angular.module('QuestClear').factory("request", function ($http, config) {
         });
     };
 
-    service.get = function (url) {
-        return service.request('GET', url);
+    service.get = function (url, query) {
+        return service.request('GET', url, query);
     };
 
     service.post = function (url, data) {

@@ -2,7 +2,7 @@ angular.module('QuestClear').controller("LoginController", function ($scope, $st
     $scope.waiting = false;
     $scope.message = null;
 
-        $scope.login = function () {
+    $scope.login = function () {
         $scope.waiting = true;
 
         request.post('/login', {
@@ -15,6 +15,6 @@ angular.module('QuestClear').controller("LoginController", function ($scope, $st
             $scope.message = msg;
         }).finally(function () {
             $scope.waiting = false;
-        })
+        });
     }
 });
