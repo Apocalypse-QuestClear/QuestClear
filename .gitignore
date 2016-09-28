@@ -1,4 +1,5 @@
 .idea
+public/dist
 
 ### Node template
 # Logs
@@ -85,4 +86,3 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
-
