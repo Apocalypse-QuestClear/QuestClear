@@ -13,6 +13,7 @@
     "angular-route": "^1.5.8",
     "angular-ui-router": "^1.0.0-beta.2",
     "body-parser": "~1.15.1",
+    "browser-sync": "^2.16.0",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",
     "del": "^2.2.2",
@@ -30,8 +31,5 @@
     "morgan": "~1.7.0",
     "request": "^2.75.0",
     "serve-favicon": "~2.3.0"
-  },
-  "devDependencies": {
-    "browser-sync": "^2.16.0"
   }
 }
