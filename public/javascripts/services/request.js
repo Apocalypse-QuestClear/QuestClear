@@ -10,6 +10,8 @@ angular.module('QuestClear').factory("request", function ($http, $httpParamSeria
             method: method,
             url: config.backendUrlPrefix + url,
             data: data
+        }).then(function (response) {
+            return response.data;
         }).catch(function (response) {
             if (response.data) {
                 return Promise.reject(response.data.message);

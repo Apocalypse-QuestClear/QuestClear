@@ -9,7 +9,8 @@ router.post('/login', function (req, res, next) {
         password: req.body.password
     }).then(function (data) {
         return res.json({
-            uid: data.uid
+            uid: data.uid,
+            username: data.username
         });
     }).catch(function (err) {
         return res.status(400).json({message: err.message});

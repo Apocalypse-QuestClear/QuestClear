@@ -3,7 +3,7 @@ var router = express.Router();
 
 router.post('/', function (req, res, next) {
     setTimeout(function () {
-        return res.json({uid: 123});
+        return res.json({uid: 123, username: 'user'});
     }, 1000);
 });
 

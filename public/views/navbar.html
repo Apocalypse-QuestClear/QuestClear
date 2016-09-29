@@ -1,0 +1,38 @@
+<div ng-controller="NavbarController">
+    <md-toolbar md-theme="white" class="navbar md-primary md-hue-1">
+        <div class="md-toolbar-tools">
+            <md-button class="logo" ui-sref="home.welcome">Quest Clear</md-button>
+            <!-- fill up the space between left and right area -->
+            <span flex></span>
+            <div ng-if="!user.uid">
+                <md-button class="md-raised md-accent" ui-sref="home.login">登录</md-button>
+                <md-button ui-sref="home.register">注册</md-button>
+            </div>
+            <div ng-if="user.uid">
+                <md-menu md-offset="0 42" md-position-mode="target-right target">
+                    <md-button class="navbar-user" ng-click="$mdOpenMenu()">
+                        {{user.username}}
+                        <md-icon md-font-set="material-icons">keyboard_arrow_down</md-icon>
+                    </md-button>
+                    <md-menu-content class="navbar-menu">
+                        <md-menu-item>
+                            <md-button>用户信息</md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button>推送通知</md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button>我的关注</md-button>
+                        </md-menu-item>
+                        <md-menu-divider></md-menu-divider>
+                        <md-menu-item>
+                            <md-button ng-click="logout()">
+                                退出登录
+                            </md-button>
+                        </md-menu-item>
+                    </md-menu-content>
+                </md-menu>
+            </div>
+        </div>
+    </md-toolbar>
+</div>

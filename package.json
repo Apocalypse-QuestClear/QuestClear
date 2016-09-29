@@ -28,6 +28,7 @@
     "jquery": "^3.1.0",
     "less": "^2.7.1",
     "lodash": "^4.16.2",
+    "material-design-icons": "^3.0.1",
     "morgan": "~1.7.0",
     "request": "^2.75.0",
     "serve-favicon": "~2.3.0"

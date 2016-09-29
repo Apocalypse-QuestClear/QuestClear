@@ -18,6 +18,10 @@ angular.module('QuestClear').config(function($urlRouterProvider, $stateProvider)
             url: "/register",
             templateUrl: 'views/home/register.html',
             controller: 'RegisterController'
+        })
+        .state('start', {
+            url: "/start",
+            templateUrl: 'views/start.html'
         });
 
     $urlRouterProvider.otherwise('/');
