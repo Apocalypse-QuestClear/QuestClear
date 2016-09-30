@@ -1,12 +1,12 @@
 <div ng-controller="NavbarController">
     <md-toolbar md-theme="white" class="navbar md-primary md-hue-1">
         <div class="md-toolbar-tools">
-            <md-button class="logo" ui-sref="home.welcome">Quest Clear</md-button>
+            <md-button class="logo" ui-sref="home.welcome({redir: state.params.redir})">Quest Clear</md-button>
             <!-- fill up the space between left and right area -->
             <span flex></span>
             <div ng-if="!user.uid">
-                <md-button class="md-raised md-accent" ui-sref="home.login">登录</md-button>
-                <md-button ui-sref="home.register">注册</md-button>
+                <md-button class="md-raised md-accent" ui-sref="home.login({redir: state.params.redir})">登录</md-button>
+                <md-button ui-sref="home.register({redir: state.params.redir})">注册</md-button>
             </div>
             <div ng-if="user.uid">
                 <md-menu md-offset="0 42" md-position-mode="target-right target">

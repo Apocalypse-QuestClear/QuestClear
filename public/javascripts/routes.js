@@ -5,17 +5,17 @@ angular.module('QuestClear').config(function($urlRouterProvider, $stateProvider)
             controller: 'HomeController'
         })
         .state('home.welcome', {
-            url: "/",
+            url: "/?redir",
             templateUrl: 'views/home/welcome.html',
             controller: 'WelcomeController'
         })
         .state('home.login', {
-            url: "/login",
+            url: "/login?redir",
             templateUrl: 'views/home/login.html',
             controller: 'LoginController'
         })
         .state('home.register', {
-            url: "/register",
+            url: "/register?redir",
             templateUrl: 'views/home/register.html',
             controller: 'RegisterController'
         })
