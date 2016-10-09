@@ -21,11 +21,20 @@
             <div layout-gt-sm="row">
                 <md-input-container class="md-block input-container" flex-gt-sm>
                     <label>确认密码</label>
-                    <input type="password" ng-model="password" placeholder=" ">
+                    <input type="password" ng-model="confirmPassword" placeholder=" ">
                 </md-input-container>
             </div>
             <div layout-gt-sm="row">
-                <md-button class="md-raised md-accent" flex-gt-sm>注册</md-button>
+                <md-input-container class="md-block input-container" flex-gt-sm>
+                    <label>电子邮箱</label>
+                    <input type="email" ng-model="email" placeholder=" ">
+                </md-input-container>
+            </div>
+            <div ng-if="message" class="warning" layout-gt-sm="row">
+                <p>{{message}}</p>
+            </div>
+            <div layout-gt-sm="row">
+                <md-button class="md-raised md-accent" flex-gt-sm ng-click="register()" ng-disabled="waiting">{{!waiting ? '注册' : '正在注册...'}}</md-button>
             </div>
         </md-content>
     </div>

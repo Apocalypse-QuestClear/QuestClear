@@ -11,4 +11,9 @@ angular.module('QuestClear').config(function($mdThemingProvider) {
             'hue-1': '50'
         })
         .accentPalette('indigo');
+
+    $mdThemingProvider.theme('default')
+        .primaryPalette('blue', {
+            'default': '700'
+        });
 });

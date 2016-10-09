@@ -10,9 +10,14 @@ body {
 
 .main-content {
     box-sizing: border-box;
-    width: 1000px;
+    max-width: 1000px;
     margin: auto;
     padding: 20px 16px;
+}
+
+.section {
+    border-radius: 5px 5px 5px 5px;
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.14), -1px -1px 1px 1px rgba(0, 0, 0, 0.07);
 }
 
 .section-toolbar {
@@ -21,4 +26,33 @@ body {
 
 .section-content {
     border-radius: 0 0 5px 5px;
+    padding: 16px;
+}
+
+.warning {
+    height: 16px;
+    font-size: 12px;
+    color: #ff0000;
+    overflow: hidden;
+    transition: height .5s ease-in-out;
+
+    p {
+        margin: 0;
+    }
+
+    &.ng-enter {
+        height: 0;
+    }
+
+    &.ng-enter-active {
+        height: 16px;
+    }
+
+    &.ng-leave {
+        height: 16px;
+    }
+
+    &.ng-leave-active {
+        height: 0;
+    }
 }

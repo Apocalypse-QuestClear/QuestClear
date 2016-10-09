@@ -22,6 +22,11 @@ angular.module('QuestClear').config(function($urlRouterProvider, $stateProvider)
         .state('start', {
             url: "/start",
             templateUrl: 'views/start.html'
+        })
+        .state('users', {
+            url: "/users/:uid",
+            templateUrl: 'views/users.html',
+            controller: 'UsersController'
         });
 
     $urlRouterProvider.otherwise('/');
