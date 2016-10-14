@@ -1,4 +1,23 @@
 <div class="state-users main-content">
+    <div class="side">
+        <div class="side-section">
+            <h4>关注的问题</h4>
+            <p>暂无</p>
+        </div>
+        <div class="side-section">
+            <h4>关注的回答</h4>
+            <p>暂无</p>
+        </div>
+        <div class="side-section">
+            <h4>{{state.params.uid === user.uid ? '我' : 'TA'}}的问题</h4>
+            <p>暂无</p>
+        </div>
+        <div class="side-section">
+            <h4>{{state.params.uid === user.uid ? '我' : 'TA'}}的回答</h4>
+            <p>暂无</p>
+        </div>
+    </div>
+
     <div class="section">
         <md-toolbar class="section-toolbar">
             <div class="md-toolbar-tools">
@@ -12,36 +31,39 @@
             </div>
         </md-toolbar>
         <md-content class="section-content">
-            <div class="md-subhead">用户名</div>
-            <div ng-if="!editMode" class="md-title">{{username}}</div>
-            <md-input-container ng-if="editMode">
-                <input ng-model="newInfo.username" />
-            </md-input-container>
-
-            <div ng-if="editMode" class="password-container">
-                <div class="md-subhead">密码</div>
-                <md-input-container md-no-float>
-                    <input type="password" ng-model="newInfo.password" placeholder="如不修改密码请留空" />
+            <img class="user-avatar" src="images/user-avatar.svg" />
+            <div class="user-info">
+                <div class="md-subhead">用户名</div>
+                <div ng-if="!editMode" class="md-title">{{username}}</div>
+                <md-input-container ng-if="editMode">
+                    <input ng-model="newInfo.username" />
                 </md-input-container>
-                <div class="md-subhead">确认密码</div>
-                <md-input-container md-no-float>
-                    <input type="password" ng-model="newInfo.confirmPassword" placeholder="如不修改密码请留空" />
+
+                <div ng-if="editMode" class="password-container">
+                    <div class="md-subhead">密码</div>
+                    <md-input-container md-no-float>
+                        <input type="password" ng-model="newInfo.password" placeholder="如不修改密码请留空" />
+                    </md-input-container>
+                    <div class="md-subhead">确认密码</div>
+                    <md-input-container md-no-float>
+                        <input type="password" ng-model="newInfo.confirmPassword" placeholder="如不修改密码请留空" />
+                    </md-input-container>
+                </div>
+
+                <div class="md-subhead">电子邮箱</div>
+                <div ng-if="!editMode" class="md-title">{{email}}</div>
+                <md-input-container ng-if="editMode">
+                    <input type="email" ng-model="newInfo.email" />
                 </md-input-container>
-            </div>
 
-            <div class="md-subhead">电子邮箱</div>
-            <div ng-if="!editMode" class="md-title">{{email}}</div>
-            <md-input-container ng-if="editMode">
-                <input type="email" ng-model="newInfo.email" />
-            </md-input-container>
+                <div ng-if="message" class="warning" layout-gt-sm="row">
+                    <p>{{message}}</p>
+                </div>
 
-            <div ng-if="message" class="warning" layout-gt-sm="row">
-                <p>{{message}}</p>
-            </div>
-
-            <div ng-if="editMode" class="submit-button-container" layout-gt-sm="row">
-                <md-button class="md-raised md-primary" ng-click="submit()" ng-disabled="waiting">{{!waiting ? '确定' : '正在更新...'}}</md-button>
-                <md-button class="md-primary" ng-click="reset()">取消</md-button>
+                <div ng-if="editMode" class="submit-button-container" layout-gt-sm="row">
+                    <md-button class="md-raised md-primary" ng-click="submit()" ng-disabled="waiting">{{!waiting ? '确定' : '正在更新...'}}</md-button>
+                    <md-button class="md-primary" ng-click="reset()">取消</md-button>
+                </div>
             </div>
         </md-content>
     </div>

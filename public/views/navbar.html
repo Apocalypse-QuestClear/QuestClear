@@ -11,8 +11,11 @@
             <div ng-if="user.uid">
                 <md-menu md-offset="0 42" md-position-mode="target-right target">
                     <md-button class="navbar-user" ng-click="$mdOpenMenu()">
-                        {{user.username}}
-                        <md-icon md-font-set="material-icons">keyboard_arrow_down</md-icon>
+                        <img class="user-avatar" src="images/user-avatar.svg" />
+                        <span>
+                            {{user.username}}
+                            <md-icon md-font-set="material-icons">keyboard_arrow_down</md-icon>
+                        </span>
                     </md-button>
                     <md-menu-content class="navbar-menu">
                         <md-menu-item>
