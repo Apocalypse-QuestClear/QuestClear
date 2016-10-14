@@ -34,7 +34,10 @@
                 <p>{{message}}</p>
             </div>
             <div layout-gt-sm="row">
-                <md-button class="md-raised md-accent" flex-gt-sm ng-click="register()" ng-disabled="waiting">{{!waiting ? '注册' : '正在注册...'}}</md-button>
+                <md-button class="md-raised md-accent" flex-gt-sm ng-click="register()" ng-disabled="waiting">
+                    <md-progress-circular ng-if="waiting" class="md-hue-1" md-mode="indeterminate" md-diameter="16px"></md-progress-circular>
+                    {{!waiting ? '注册' : '正在注册...'}}
+                </md-button>
             </div>
         </md-content>
     </div>

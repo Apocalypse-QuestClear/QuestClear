@@ -5,6 +5,6 @@ module.exports = {
         '/login',
         '/logout',
         '/auth',
-        '/users/.*'
+        '/users(/.*)?'
     ]
 };

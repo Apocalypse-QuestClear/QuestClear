@@ -61,7 +61,10 @@
                 </div>
 
                 <div ng-if="editMode" class="submit-button-container" layout-gt-sm="row">
-                    <md-button class="md-raised md-primary" ng-click="submit()" ng-disabled="waiting">{{!waiting ? '确定' : '正在更新...'}}</md-button>
+                    <md-button class="submit-button md-raised md-primary" ng-click="submit()" ng-disabled="waiting">
+                        <md-progress-circular ng-if="waiting" class="md-hue-1" md-mode="indeterminate" md-diameter="16px"></md-progress-circular>
+                        {{!waiting ? '确定' : '正在更新...'}}
+                    </md-button>
                     <md-button class="md-primary" ng-click="reset()">取消</md-button>
                 </div>
             </div>
