@@ -22,7 +22,10 @@
                 <p>{{message}}</p>
             </div>
             <div layout-gt-sm="row">
-                <md-button class="md-raised md-accent" flex-gt-sm ng-click="login()" ng-disabled="waiting">{{!waiting ? '登录' : '正在登录...'}}</md-button>
+                <md-button class="md-raised md-accent" flex-gt-sm ng-click="login()" ng-disabled="waiting">
+                    <md-progress-circular ng-if="waiting" class="md-hue-1" md-mode="indeterminate" md-diameter="16px"></md-progress-circular>
+                    {{!waiting ? '登录' : '正在登录...'}}
+                </md-button>
             </div>
         </md-content>
     </div>

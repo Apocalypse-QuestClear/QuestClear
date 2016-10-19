@@ -7,10 +7,17 @@ var config = require(__base + 'config');
 var service = {};
 
 service.request = function (req, res, method, requestUrl, data) {
-    if (config.mockMap.hasOwnProperty(requestUrl)) {
-        requestUrl = config.mockUrlPrefix + config.mockMap[requestUrl];
+    var mock = false;
+    for (var i in config.mockList) {
+        if (config.mockList.hasOwnProperty(i)) {
+            if (requestUrl.match(config.mockList[i])) {
+                requestUrl = config.mockUrlPrefix + requestUrl;
+                mock = true;
+            }
+        }
     }
-    else {
+
+    if (!mock) {
         requestUrl = config.backendUrlPrefix + requestUrl;
     }
 

@@ -7,4 +7,10 @@ module.exports = {
         '/auth': '/auth',
         '/list':'/list'
     }
+    mockList: [
+        '/login',
+        '/logout',
+        '/auth',
+        '/users(/.*)?'
+    ]
 };

@@ -1,0 +1,103 @@
+.state-users {
+    .section {
+        margin-right: 341px;
+    }
+
+    .md-subhead {
+        color: rgba(0,0,0,0.54);
+        font-size: 14px;
+    }
+
+    .md-title {
+        margin: 5px 0 15px 0;
+    }
+
+    md-input-container {
+        margin: 5px 0 15px;
+        padding: 0;
+    }
+
+    .md-input {
+        width: 300px;
+        padding-left: 0;
+        font-size: 20px;
+
+        &[type=password] {
+            font-size: 14px;
+        }
+    }
+
+    .md-errors-spacer {
+        display: none;
+    }
+
+    .password-container {
+        transition: all .5s ease-in-out;
+        overflow: hidden;
+
+        &.ng-enter {
+            height: 0;
+        }
+
+        &.ng-enter.ng-enter-active {
+            height: 148px;
+        }
+
+        &.ng-leave {
+            height: 148px;
+        }
+
+        &.ng-leave.ng-leave-active {
+            height: 0;
+        }
+    }
+
+    .submit-button-container {
+        margin-top: 10px;
+        transition: all .5s ease-in-out;
+        overflow: hidden;
+
+        &.ng-enter {
+            height: 0;
+        }
+
+        &.ng-enter.ng-enter-active {
+            height: 48px;
+        }
+
+        &.ng-leave {
+            height: 48px;
+        }
+
+        &.ng-leave.ng-leave-active {
+            height: 0;
+        }
+
+        button {
+            margin-left: 0;
+        }
+
+        .submit-button {
+            width: 110px;
+
+            md-progress-circular {
+                margin-right: 10px;
+            }
+
+            & > * {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        }
+    }
+
+    .user-avatar {
+        float: right;
+        height: 150px;
+        width: 150px;
+    }
+
+    .user-info {
+        margin-right: 170px;
+    }
+}
