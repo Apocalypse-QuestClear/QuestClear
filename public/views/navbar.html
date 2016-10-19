@@ -1,19 +1,35 @@
 <div ng-controller="NavbarController">
     <md-toolbar md-theme="white" class="navbar md-primary md-hue-1">
+
         <div class="md-toolbar-tools">
-            <md-button class="logo" ui-sref="home.welcome({redir: state.params.redir})">Quest Clear</md-button>
+            <md-button class="logo" ui-sref="home.welcome({redir: state.params.redir})">
+                QuestClear
+                <!--<img class="logoImg" src="../images/logo.png">-->
+            </md-button>
             <!-- fill up the space between left and right area -->
             <span flex></span>
             <div ng-if="!user.uid">
                 <md-button class="md-raised md-accent" ui-sref="home.login({redir: state.params.redir})">登录</md-button>
                 <md-button ui-sref="home.register({redir: state.params.redir})">注册</md-button>
             </div>
-            <div ng-if="user.uid">
+
+            <div ng-if="user.uid" >
+
+                <md-button class="navbar-menu">
+                    <a ui-sref="panel.list">list</a>
+                </md-button>
+
+                <md-button class="navbar-menu">
+                    <a ui-sref="panel.post">post</a>
+                </md-button>
+
                 <md-menu md-offset="0 42" md-position-mode="target-right target">
                     <md-button class="navbar-user" ng-click="$mdOpenMenu()">
+                        <!--<md-icon md-font-set="material-icons">keyboard_arrow_down</md-icon>-->
                         {{user.username}}
                         <md-icon md-font-set="material-icons">keyboard_arrow_down</md-icon>
                     </md-button>
+
                     <md-menu-content class="navbar-menu">
                         <md-menu-item>
                             <md-button>用户信息</md-button>

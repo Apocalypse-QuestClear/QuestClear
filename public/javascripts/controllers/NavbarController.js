@@ -13,4 +13,6 @@ angular.module('QuestClear').controller("NavbarController", function ($scope, $s
                 $state.go('home.welcome');
             });
     };
+
+
 });

@@ -1,10 +1,43 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+    <md-card >
+        <!--<img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">-->
+                <span class="md-headline">Answer the post</span>
+            <div >
+                <form name="questForm" layout="column">
+                    <span class="md-headline">{{quest.title}}</span>
+                    <span class="md-headline">{{quest.time}}</span>
+                    <span class="md-headline">Category:{{quest.category}}</span>
 
-</body>
-</html>
+                    <label><h>Steps:</h></label>
+
+
+                    <md-button class="md-icon-button">
+                        <span>Add a step</span>
+                    </md-button>
+
+
+                    <md-input-container layout="column" >
+                            <label>Step 1:</label>
+                            <textarea ng-model="step.step1" md-maxlength="120" rows="3" md-select-on-focus></textarea>
+
+                    </md-input-container>
+
+
+
+
+                    <md-checkbox ng-model="answer.hideUser" aria-label="hideUser">
+                        HideUser
+                    </md-checkbox>
+                </form>
+            </div>
+
+
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button class="md-icon-button" aria-label="Favorite">
+                <i class="material-icons">save</i>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Settings" >
+                <i class="material-icons">done</i>
+            </md-button>
+        </md-card-actions>
+    </md-card>
+

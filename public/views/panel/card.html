@@ -1,10 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<div layout="column">
+    <md-card md-colors="grey">
+
+
+        <i class="material-icons">people</i>
+        <span class="q-title">{{quest.tittle}}</span>
+        <span class="q-time">{{quest.time}}</span>
+        <span class="q-uid">{{quest.uid}}</span>
+        <!--<md-content flex layout-padding>-->
+            <!--<p>{{card.content}}</p>-->
+        <!--</md-content>-->
+
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button class="md-icon-button" aria-label="Favorite">
+                <i class="material-icons">bookmark_border</i>
+            </md-button>
+            <md-button ui-sref="panel.answer" class="md-icon-button" aria-label="Settings" >
+                <i class="material-icons">mode_edit</i>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Share">
+                <i class="material-icons">open_in_new</i>
+            </md-button>
+
+        </md-card-actions>
+    </md-card>
+</div>

@@ -12,7 +12,7 @@ angular.module('QuestClear').controller("LoginController", function ($scope, $st
                     $location.url($state.params.redir);
                 }
                 else {
-                    $state.go('start');
+                    $state.go('panel');
                 }
             })
             .catch(function (msg) {
