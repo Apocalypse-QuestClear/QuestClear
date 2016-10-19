@@ -42,13 +42,13 @@ angular.module('QuestClear').config(function($urlRouterProvider, $stateProvider)
         .state('panel.answer',{
             url:"/answer",
             templateUrl:'views/panel/answer.html',
+
             controller:'AnswerController'
-    });
+    })
         .state('users', {
             url: "/users/:uid",
             templateUrl: 'views/users.html',
             controller: 'UsersController'
         });
-
     $urlRouterProvider.otherwise('/');
 });
