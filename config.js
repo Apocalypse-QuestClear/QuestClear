@@ -4,6 +4,7 @@ module.exports = {
     mockMap: {
         '/login': '/login',
         '/logout': '/logout',
-        '/auth': '/auth'
+        '/auth': '/auth',
+        '/list':'/list'
     }
 };
