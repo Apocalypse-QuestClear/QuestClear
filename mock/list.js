@@ -4,7 +4,8 @@
 var express = require('express');
 var router = express.Router();
 
-router.post('/panel', function (req, res, next) {
+router.post('/', function (req, res, next) {
+    console.log('test');
     setTimeout(function () {
         return res.json({msg:'frommocklist'});
     }, 1000);

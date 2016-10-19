@@ -7,17 +7,16 @@ var juration = require('juration');
 
 var request = require(__base + 'request');
 
-router.post('/list', function (req, res, next) {
-    request.post(req,res,'/list',{
-        msg:req.body.msg
-    }).then(function(data){
+router.post('/', function (req, res, next) {
+    request.post(req,res,'/list', {
+        msg: req.body.msg
+    }).then(function(data) {
+        console.log(data);
         return res.json({
-            msg:data.msg
+            msg: data.msg
         })
     }).catch(function(msg){
         console.log(msg)
-    }).finally(function(){
-
     });
 });
 
