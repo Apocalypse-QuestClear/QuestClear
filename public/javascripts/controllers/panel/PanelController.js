@@ -3,6 +3,6 @@
  */
 angular.module('QuestClear').controller("PanelController",function ($scope,$state, $http,$location, userService,request){
     $state.go('.list');
-    // console.log('this is panelController');
+    console.log('this is panelController');
     userService.test()
 });

@@ -7,7 +7,7 @@ var juration = require('juration');
 
 var request = require(__base + 'request');
 
-router.post('/', function (req, res, next) {
+router.post('/list', function (req, res, next) {
     request.post(req,res,'/list', {
         msg: req.body.msg
     }).then(function(data) {

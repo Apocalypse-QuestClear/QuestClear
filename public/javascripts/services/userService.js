@@ -71,7 +71,7 @@ angular.module('QuestClear').factory("userService", function (request) {
     };
 
     service.test=function(){
-      return request.post('/list',{})
+      return request.post('/panel/list',{})
           .then(function(data){
               console.log(data)
           })

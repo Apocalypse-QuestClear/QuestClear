@@ -4,7 +4,7 @@
 var express = require('express');
 var router = express.Router();
 
-router.post('/panel', function (req, res, next) {
+router.post('/', function (req, res, next) {
     return res.json({msg:'helloworld'});
 });
 

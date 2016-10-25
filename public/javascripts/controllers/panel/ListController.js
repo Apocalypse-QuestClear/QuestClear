@@ -2,7 +2,7 @@
  * Created by EdwardChor on 11/10/2016.
  */
 angular.module('QuestClear')
-    .controller("ListController",function($scope){
+    .controller("ListController",function($scope,userService){
         var card1={
             tittle:'How to set up Apache2,PHP,MySql on Ubuntu 14.14?',
             time:'2015-09-23',
@@ -28,6 +28,8 @@ angular.module('QuestClear')
             uid:'0001'
         };
         $scope.quests=[card1,card2,card3,card4];
+
+        userService.test()
 })
     .directive('questCard',function(){
     return{
