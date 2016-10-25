@@ -31,14 +31,15 @@ service.request = function (req, res, method, requestUrl, data) {
         request({
             method: method,
             url: url.format(urlObj),
-            data: data,
+            body: data,
+            json: true,
             headers: {
                 'x-access-token': req.cookies['access-token']
             }
         }, function (err, response, body) {
             if (err) return reject(err);
 
-            var data = JSON.parse(body);
+            var data = body;
 
             if (response.statusCode !== 200) {
                 reject({
