@@ -41,7 +41,7 @@ service.request = function (req, res, method, requestUrl, data) {
 
             var data = body;
 
-            if (response.statusCode !== 200) {
+            if (!response.statusCode.toString().startsWith('2')) {
                 reject({
                     status: response.statusCode,
                     message: data.error
