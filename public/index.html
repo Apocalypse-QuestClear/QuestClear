@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="/node_modules/material-design-icons/iconfont/material-icons.css">
     <link rel="stylesheet" href="dist/stylesheets/styles.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" >
-
+    <meta name="viewport" content="width=1000">
     <script src="/node_modules/jquery/dist/jquery.js"></script>
     <script src="/node_modules/angular/angular.js"></script>
     <script src="/node_modules/angular-aria/angular-aria.js"></script>
@@ -18,10 +18,10 @@
 </head>
 <body ng-app="QuestClear">
 
-<div ng-controller="MainController">
-    <div ng-include="'views/navbar.html'"></div>
-    <div ui-view></div>
-</div>
+    <div ng-controller="MainController">
+        <div ng-include="'views/navbar.html'"></div>
+        <div ui-view></div>
+    </div>
 
 </body>
 </html>

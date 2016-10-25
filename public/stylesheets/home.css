@@ -2,6 +2,8 @@
   position: relative;
   width: 100%;
   padding-bottom: 62.34%;
+  box-sizing: border-box;
+  min-height: 623px;
   overflow: hidden;
 }
 .state-home .home-container .home-bg,
@@ -10,6 +12,12 @@
   top: 0;
   left: 0;
   width: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .state-home .home-container {
+    width: 1000px;
+    height: 623px;
+  }
 }
 .state-home .home-container .home-bg-0 {
   transform: scale(1.02, 1.02);
