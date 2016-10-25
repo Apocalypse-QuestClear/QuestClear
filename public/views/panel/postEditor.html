@@ -17,7 +17,7 @@
 
                     <md-input-container class="md-block" flex-gt-xs="">
                         <label>Category</label>
-                        <md-select ng-model="quest.categoryies"
+                        <md-select ng-model="quest.category"
                                    multiple>
                             <md-select-header class="demo-select-header">
                             </md-select-header>
@@ -27,9 +27,7 @@
                         </md-select>
                     </md-input-container>
 
-                    <md-checkbox ng-model="quest.hideUser" aria-label="hideUser">
-                        HideUser
-                    </md-checkbox>
+                    <md-switch ng-model="quest.hideUser">{{quest.hideUser? "Hide User" : "Display User"}}</md-switch>
 
                 </form>
             </div>
@@ -45,5 +43,9 @@
             </md-button>
         </md-card-actions>
     </md-card>
+
+    <div ng-if="message" class="warning" layout-gt-sm="row">
+        <p>{{message}}</p>
+    </div>
 
 </div>

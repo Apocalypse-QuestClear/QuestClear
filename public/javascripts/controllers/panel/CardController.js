@@ -1,9 +1,9 @@
 /**
  * Created by EdwardChor on 12/10/2016.
  */
-angular.module('QuestClear').controller("CardController",function($scope){
-    $scope.jumpToAnswer=function(){
-        alert("Answer!")
-    }
+angular.module('QuestClear').controller("CardController",function($scope,$state,userService){
+
+
+
 });
 
