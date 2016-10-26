@@ -31,7 +31,7 @@ angular.module('QuestClear').config(function($urlRouterProvider, $stateProvider)
         )
         .state('panel.list',{
             url:"/list",
-            templateUrl:'views/panel/cardlist.html',
+            templateUrl:'views/panel/cardList.html',
             controller:'ListController'
         })
         .state('panel.post',{
