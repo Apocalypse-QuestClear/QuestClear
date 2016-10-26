@@ -7,30 +7,32 @@ var juration = require('juration');
 
 var request = require(__base + 'request');
 
-// router.post('/list', function (req, res, next) {
-//     request.post(req,res,'/panel/list', {
-//         msg: req.body.msg
-//     }).then(function(data) {
-//         console.log(data);
-//         return res.json({
-//             msg: data.msg
-//         })
-//     })
-// });
-
 router.post('/fetch', function(req, res, next) {
     request.get(req, res, '/questions?limit=' + req.body.num)
         .then(function (data) {
+
+            data.forEach(function (item) {
+                item.category = [item.category];
+            });
+
+            return Promise.all(data.map(function (item) {
+                if (item.uid) {
+                    return request.get(req, res, '/users/' + item.uid).then(function (data) {
+                        item.username = data.username;
+                        return item;
+                    });
+                }
+                else {
+                    return item;
+                }
+            }));
+
+        }).then(function (data) {
             return res.json(data);
         });
 });
 
 router.post('/post', function(req, res, next) {
-    console.log({
-        title:req.body.title,
-        category:req.body.category[0],
-        hideUser: req.body.hideUser
-    });
     request.post(req, res, '/questions', {
         title:req.body.title,
         category:req.body.category[0],

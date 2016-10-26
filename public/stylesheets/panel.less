@@ -1,31 +1,57 @@
 md-button .logo{
-  width:150px !important;
-  .logoImg{
-    width:100% !important;
-  }
+    width:150px !important;
+    .logoImg{
+        width:100% !important;
+    }
 }
 .state-panel{
-  //background-image: url("../../images/panel-bg-1-min.png");
-  background-size: auto;
-  md-card {
-    //background: gray;
-    margin:5% 10%;
-    padding:5% 5%;
-    .q-time .q-title .q-uid{
-      padding:50px !important;
+    //background-image: url("../../images/panel-bg-1-min.png");
+    background-size: auto;
+    md-card {
+        //background: gray;
+        margin: 20px;
+        padding: 20px 40px;
+        .q-time .q-title .q-uid{
+            padding:50px !important;
+        }
+
+        .q-title {
+            color: #259;
+            font-size: 21px;
+        }
+
+        .q-time {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .q-uid {
+            & > * {
+                vertical-align: middle;
+            }
+        }
+
+        md-chips .md-chips {
+            box-shadow: none;
+        }
+
+        md-chips .md-chips md-chip {
+            height: 22px;
+            line-height: 22px;
+            background-color: #eee;
+            font-size: 14px;
+        }
     }
 
-
-
-  }
-
-  .post {
-    //background:transparent;
-    margin: 5% 20%;
-  }
-  post-editor{
-
-  }
+    .post {
+        //background:transparent;
+        margin: 5% 20%;
+    }
+    post-editor{
+        md-input-container {
+            width: 100%;
+        }
+    }
 
   .searchArea{
     input,md-icon,label{
@@ -37,6 +63,7 @@ md-button .logo{
   .state-panel-answer{
 
     answer-editor{
+
       .questInfo{
         margin:10px 0 !important;
         .title{

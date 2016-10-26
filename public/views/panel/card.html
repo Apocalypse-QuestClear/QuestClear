@@ -1,17 +1,26 @@
 <div layout="column">
     <md-card md-colors="grey">
 
+        <span class="q-title">{{quest.title}}</span>
+        <span class="q-time">{{quest.time | date: 'yyyy-MM-dd HH:mm:ss'}}</span>
+        <span class="q-category">
+            <md-chips ng-model="quest.category" md-removable="false" readonly="true">
+                <md-chip-template>
+                  {{$chip}}
+                </md-chip-template>
+            </md-chips>
+        </span>
 
-        <i class="material-icons">people</i>
-        <span class="q-title">{{quest.tittle}}</span>
-        <span class="q-time">{{quest.time}}</span>
-        <span class="q-time">{{quest.category}}</span>
-        <span class="q-uid">{{quest.uid}}</span>
         <!--<md-content flex layout-padding>-->
             <!--<p>{{card.content}}</p>-->
         <!--</md-content>-->
 
         <md-card-actions layout="row" layout-align="end center">
+            <span ng-if="quest.uid" class="q-uid">
+                <i class="material-icons">people</i>
+                <span>{{quest.username}}</span>
+            </span>
+            <span flex></span>
             <md-button class="md-icon-button" aria-label="Favorite">
                 <i class="material-icons">bookmark_border</i>
             </md-button>
