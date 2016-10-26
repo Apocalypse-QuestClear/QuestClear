@@ -4,40 +4,38 @@
                 <form name="questForm" layout="column">
                     <div class="questInfo" layout="column">
                         <span class="md-headline title">{{quest.title}}</span>
-                      <div layout="row">
-                        <span class="time .md-body-2" flex="50">提问时间:{{quest.time}}</span>
-                        <span class="category .md-body-2" flex="50">类别:{{quest.category}}</span>
-                      </div>
+                      <!--<div layout="row">-->
+                        <!--<span class="time .md-body-2" flex="50">提问时间:{{quest.time}}</span>-->
+                        <!--<span class="category .md-body-2" flex="50">类别:{{quest.category}}</span>-->
+                      <!--</div>-->
                     </div>
-                    <label><h>具体步骤:</h></label>
+                    <!--<label><h>具体步骤:</h></label>-->
 
                     <!--<span>{{qid}}</span>-->
 
                     <div class="stepContainer" ng-repeat="step in steps" layout="column">
 
-                        <div layout-gt-sm="row">
-                        <md-input-container class="answerTitle md-block" layout="column" flex="50">
-                            <label>步骤名</label>
-                            <input class="stepTitle" ng-model="step.title" >
-                        </md-input-container>
+                        <h4>步骤{{$index + 1}}：</h4>
 
-                        <md-input-container class="md-block" flex="grow" flex-offset="15">
-                            <md-switch ng-model="step.isItem" >{{step.isItem ? "是物品" : "非物品"}}</md-switch>
-                        </md-input-container>
+                        <div class="title-container" layout-gt-sm="row">
+                            <md-input-container class="answerTitle md-block" layout="column" flex="50">
+                                <label>{{step.isItem ? "物品名称" : "步骤标题"}}</label>
+                                <input class="stepTitle" ng-model="step.title" placeholder=" ">
+                            </md-input-container>
 
+                            <md-input-container class="md-block" flex-offset="2">
+                                <md-switch ng-model="step.isItem" >是否为物品</md-switch>
+                            </md-input-container>
+
+                            <md-input-container ng-show="step.isItem" flex="10" flex-offset="5">
+                                <label>物品数量</label> <input ng-model="step.count" ng-show="step.isItem">
+                            </md-input-container>
                         </div>
 
-                        <div layout="row">
-                        <md-input-container ng-show="step.isItem" flex="30">
-                            <label >物品数量:</label> <input ng-model="step.count" ng-show="step.isItem">
-                        </md-input-container>
-                        </div>
-
-                        <div  layout="column">
-                        <md-input-container>
-                            <label>具体:</label><textarea  md-maxlength="120" rows="4" md-select-on-focus ng-model="step.detail"></textarea>
-                        </md-input-container>
-
+                        <div layout="column">
+                            <md-input-container>
+                                <label>详细说明</label><textarea placeholder=" "  md-maxlength="120" rows="4" md-select-on-focus ng-model="step.detail"></textarea>
+                            </md-input-container>
                         </div>
 
                         <md-button ng-show="" class="md-icon-button" aria-label="Favorite" ng-click="addStep()">
@@ -46,10 +44,12 @@
 
                     </div>
 
-
-                    <md-button class="md-icon-button" aria-label="Favorite" ng-click="addStep()">
-                        <i class="material-icons">note_add</i>
-                    </md-button>
+                    <div class="add-step-container" ng-click="addStep()">
+                        <md-button class="md-icon-button button-add-step" aria-label="Favorite">
+                            <i class="material-icons">note_add</i>
+                        </md-button>
+                        <span>添加步骤</span>
+                    </div>
 
                     <md-switch ng-model="quest.hideUser">{{quest.hideUser? "匿名" : "显示您的信息"}}</md-switch>
                 </form>

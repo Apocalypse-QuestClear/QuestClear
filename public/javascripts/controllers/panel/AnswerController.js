@@ -11,12 +11,10 @@ angular.module("QuestClear")
             category:'生活'
         };
 
-        stepN=3;
+        stepN=1;
         step1={title:'', isItem:false, count:0, detail:""};
-        step2={title:'', isItem:false, count:0, detail:""};
-        step3={title:'', isItem:false, count:0, detail:""};
 
-        $scope.steps=[step1,step2,step3];
+        $scope.steps=[step1];
 
         $scope.addStep=function(){
             stepN+=1;
