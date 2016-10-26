@@ -34,9 +34,9 @@ angular.module('QuestClear')
         userService.fetchList(4).then(function (data) {
             $scope.quests = data;
         });
-})
-    .directive('questCard',function(){
-    return{
-        templateUrl:'views/panel/card.html'
-    }
-});
+    })
+    .directive('questCard', function () {
+        return {
+            templateUrl:'views/panel/card.html'
+        }
+    });

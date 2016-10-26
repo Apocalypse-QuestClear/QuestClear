@@ -86,15 +86,6 @@ angular.module('QuestClear').factory("userService", function (request) {
         })
     };
 
-    service.ask=function(content){
-        request.post("/panel/post",{
-            cont:content
-        })
-            .then(function(data){
-                return data
-            })
-    };
-
     service.checkQ=function(qid){
         request.post("/panel/checkQ",{
             qid:qid
