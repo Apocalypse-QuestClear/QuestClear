@@ -6,9 +6,7 @@ angular.module("QuestClear")
         quesInfo=userService.checkQ($scope.qid);
         //$scope.quest=questInfo;
         $scope.quest={
-            title:'怎样做一个披萨？',
-            time:'2016-10-11',
-            category:'生活'
+            title:'How to make a pizza?'
         };
 
         stepN=1;
