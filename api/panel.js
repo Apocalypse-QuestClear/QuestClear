@@ -33,6 +33,11 @@ router.post('/fetch', function(req, res, next) {
 });
 
 router.post('/post', function(req, res, next) {
+    console.log({
+        title:req.body.title,
+        category:req.body.category[0],
+        hideUser: req.body.hideUser
+    });
     request.post(req, res, '/questions', {
         title:req.body.title,
         category:req.body.category[0],
