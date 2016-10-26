@@ -23,3 +23,16 @@ md-button .logo .logoImg {
   position: relative !important;
   top: 20px !important;
 }
+.state-panel .state-panel-answer answer-editor .questInfo {
+  margin: 10px 0 !important;
+}
+.state-panel .state-panel-answer answer-editor .questInfo .title {
+  color: red !important;
+}
+.state-panel .state-panel-answer answer-editor .questInfo .time,
+.state-panel .state-panel-answer answer-editor .questInfo .category {
+  margin: 10px  0;
+}
+.state-panel .state-panel-answer answer-editor .stepContainer .stepTitle {
+  width: 400px;
+}

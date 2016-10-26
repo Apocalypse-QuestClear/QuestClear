@@ -1,37 +1,46 @@
     <md-card >
         <!--<img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">-->
-                <span class="md-headline">Answer the post</span>
             <div >
                 <form name="questForm" layout="column">
-                    <span class="md-headline">Title:{{quest.title}}</span>
-                    <span class="md-headline">Time:{{quest.time}}</span>
-                    <span class="md-headline">Category:{{quest.category}}</span>
-
-                    <label><h>Steps:</h></label>
-
+                    <div class="questInfo" layout="column">
+                        <span class="md-headline title">{{quest.title}}</span>
+                      <div layout="row">
+                        <span class="time .md-body-2" flex="50">提问时间:{{quest.time}}</span>
+                        <span class="category .md-body-2" flex="50">类别:{{quest.category}}</span>
+                      </div>
+                    </div>
+                    <label><h>具体步骤:</h></label>
 
                     <!--<span>{{qid}}</span>-->
 
-                    <div ng-repeat="step in steps" layout="column">
+                    <div class="stepContainer" ng-repeat="step in steps" layout="column">
 
-                        <md-input-container class="md-block" layout="column" >
-                                <label>Title</label>
-                                <input ng-model="step.title">
+                        <div layout-gt-sm="row">
+                        <md-input-container class="answerTitle md-block" layout="column" flex="50">
+                            <label>步骤名</label>
+                            <input class="stepTitle" ng-model="step.title" >
                         </md-input-container>
 
-                        <md-input-container layout="row">
-                            <md-switch ng-model="step.isItem">{{step.isItem ? "Is an item" : "Not an item"}}</md-switch>
+                        <md-input-container class="md-block" flex="grow" flex-offset="15">
+                            <md-switch ng-model="step.isItem" >{{step.isItem ? "是物品" : "非物品"}}</md-switch>
                         </md-input-container>
 
+                        </div>
+
+                        <div layout="row">
+                        <md-input-container ng-show="step.isItem" flex="30">
+                            <label >物品数量:</label> <input ng-model="step.count" ng-show="step.isItem">
+                        </md-input-container>
+                        </div>
+
+                        <div  layout="column">
                         <md-input-container>
-                        <label ng-show="step.isItem">Counts:</label> <input ng-model="step.count" ng-show="step.isItem">
-                        </md-input-container>
-                        <md-input-container layout="column">
-                            <label>Details:</label><textarea  md-maxlength="120" rows="4" md-select-on-focus ng-model="step.detail"></textarea>
+                            <label>具体:</label><textarea  md-maxlength="120" rows="4" md-select-on-focus ng-model="step.detail"></textarea>
                         </md-input-container>
 
+                        </div>
 
-                        <md-button ng-if="len(steps)>3" class="md-icon-button" aria-label="Favorite" ng-click="addStep()">
+                        <md-button ng-show="" class="md-icon-button" aria-label="Favorite" ng-click="addStep()">
                             <i class="material-icons">delete</i>
                         </md-button>
 
@@ -42,7 +51,7 @@
                         <i class="material-icons">note_add</i>
                     </md-button>
 
-                    <md-switch ng-model="quest.hideUser">{{quest.hideUser? "Hide User" : "Display User"}}</md-switch>
+                    <md-switch ng-model="quest.hideUser">{{quest.hideUser? "匿名" : "显示您的信息"}}</md-switch>
                 </form>
             </div>
 
