@@ -19,10 +19,10 @@ router.post('/list', function (req, res, next) {
 });
 
 router.post('/fetch',function(req,res,next){
-    request.get(req,res,'/questions?&limit='+req.body.num)
-        .then(function(data){
-            return data
-            })
+    request.get(req, res, '/questions?limit=' + req.body.num)
+        .then(function(data) {
+            return res.json(data);
+        });
 });
 
 router.post('/post',function(req,res,next){

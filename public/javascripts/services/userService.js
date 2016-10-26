@@ -80,13 +80,10 @@ angular.module('QuestClear').factory("userService", function (request) {
     };
 
 
-    service.fetchList=function(num){
-            request.post("/panel/fetch",{
-                num:num
-            })
-            .then(function(data){
-                return data
-            })
+    service.fetchList = function (num) {
+        return request.post("/panel/fetch", {
+            num: num
+        })
     };
 
     service.ask=function(content){
