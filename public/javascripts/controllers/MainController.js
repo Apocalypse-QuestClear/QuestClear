@@ -4,6 +4,8 @@ angular.module('QuestClear').controller("MainController", function ($scope, $tra
             .then(function (auth) {
                 var home = $transition$.to().name.split('.')[0] === 'home';
                 if (home && auth) {
+                    $state.go("panel.list",{redir:$location.url()});
+                    return false;
                     return $transition$.router.stateService.target('start');
                 }
                 else if (!home && !auth) {

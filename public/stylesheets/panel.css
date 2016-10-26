@@ -1,0 +1,25 @@
+md-button .logo {
+  width: 150px !important;
+}
+md-button .logo .logoImg {
+  width: 100% !important;
+}
+.state-panel {
+  background-size: auto;
+}
+.state-panel md-card {
+  margin: 5% 10%;
+  padding: 5% 5%;
+}
+.state-panel md-card .q-time .q-title .q-uid {
+  padding: 50px !important;
+}
+.state-panel .post {
+  margin: 5% 20%;
+}
+.state-panel .searchArea input,
+.state-panel .searchArea md-icon,
+.state-panel .searchArea label {
+  position: relative !important;
+  top: 20px !important;
+}

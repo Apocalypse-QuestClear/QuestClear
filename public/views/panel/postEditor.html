@@ -1,0 +1,51 @@
+<div>
+    <md-card class="posteditor">
+        <!--<img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">-->
+        <md-card-title>
+            <md-card-title-text>
+                <span class="md-headline">Post a new question:</span>
+            </md-card-title-text>
+        </md-card-title>
+
+        <md-card-content>
+            <div>
+                <form name="questForm">
+                    <md-input-container>
+                        <label>Question Title</label>
+                        <input ng-model="quest.title">
+                    </md-input-container>
+
+                    <md-input-container class="md-block" flex-gt-xs="">
+                        <label>Category</label>
+                        <md-select ng-model="quest.category"
+                                   multiple>
+                            <md-select-header class="demo-select-header">
+                            </md-select-header>
+                            <md-optgroup label="categories">
+                                <md-option ng-value="category" ng-repeat="category in categories">{{category}}</md-option>
+                            </md-optgroup>
+                        </md-select>
+                    </md-input-container>
+
+                    <md-switch ng-model="quest.hideUser">{{quest.hideUser? "Hide User" : "Display User"}}</md-switch>
+
+                </form>
+            </div>
+        </md-card-content>
+
+
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button class="md-icon-button" >
+                <i class="material-icons">save</i>
+            </md-button>
+            <md-button class="md-icon-button" >
+                <i class="material-icons">done</i>
+            </md-button>
+        </md-card-actions>
+    </md-card>
+
+    <div ng-if="message" class="warning" layout-gt-sm="row">
+        <p>{{message}}</p>
+    </div>
+
+</div>

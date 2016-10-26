@@ -1,0 +1,79 @@
+.state-users .section {
+  margin-right: 341px;
+}
+.state-users .md-subhead {
+  color: rgba(0, 0, 0, 0.54);
+  font-size: 14px;
+}
+.state-users .md-title {
+  margin: 5px 0 15px 0;
+}
+.state-users md-input-container {
+  margin: 5px 0 15px;
+  padding: 0;
+}
+.state-users .md-input {
+  width: 300px;
+  padding-left: 0;
+  font-size: 20px;
+}
+.state-users .md-input[type=password] {
+  font-size: 14px;
+}
+.state-users .md-errors-spacer {
+  display: none;
+}
+.state-users .password-container {
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+}
+.state-users .password-container.ng-enter {
+  height: 0;
+}
+.state-users .password-container.ng-enter.ng-enter-active {
+  height: 148px;
+}
+.state-users .password-container.ng-leave {
+  height: 148px;
+}
+.state-users .password-container.ng-leave.ng-leave-active {
+  height: 0;
+}
+.state-users .submit-button-container {
+  margin-top: 10px;
+  transition: all 0.5s ease-in-out;
+  overflow: hidden;
+}
+.state-users .submit-button-container.ng-enter {
+  height: 0;
+}
+.state-users .submit-button-container.ng-enter.ng-enter-active {
+  height: 48px;
+}
+.state-users .submit-button-container.ng-leave {
+  height: 48px;
+}
+.state-users .submit-button-container.ng-leave.ng-leave-active {
+  height: 0;
+}
+.state-users .submit-button-container button {
+  margin-left: 0;
+}
+.state-users .submit-button-container .submit-button {
+  width: 110px;
+}
+.state-users .submit-button-container .submit-button md-progress-circular {
+  margin-right: 10px;
+}
+.state-users .submit-button-container .submit-button > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+.state-users .user-avatar {
+  float: right;
+  height: 150px;
+  width: 150px;
+}
+.state-users .user-info {
+  margin-right: 170px;
+}

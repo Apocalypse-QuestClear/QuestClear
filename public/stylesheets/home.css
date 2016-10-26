@@ -1,0 +1,140 @@
+.state-home .home-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 62.34%;
+  box-sizing: border-box;
+  min-height: 623px;
+  overflow: hidden;
+}
+.state-home .home-container .home-bg,
+.state-home .home-container .home-content-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+@media screen and (max-width: 1000px) {
+  .state-home .home-container {
+    width: 1000px;
+    height: 623px;
+  }
+}
+.state-home .home-container .home-bg-0 {
+  transform: scale(1.02, 1.02);
+}
+.state-home .home-container .home-content-container {
+  transition: opacity 0.5s ease-in-out;
+}
+.state-home .home-container .home-content-container.ng-enter {
+  opacity: 0;
+}
+.state-home .home-container .home-content-container.ng-enter-active {
+  opacity: 1;
+}
+.state-home .home-container .home-content-container.ng-leave {
+  opacity: 1;
+}
+.state-home .home-container .home-content-container.ng-leave-active {
+  opacity: 0;
+}
+.state-home .home-content {
+  position: relative;
+  margin: auto;
+}
+.state-home-welcome {
+  position: relative;
+  top: 100px;
+  width: 800px;
+  color: white;
+}
+.state-home-welcome .center-block {
+  text-align: center;
+  animation: block-onload 2s ease-in-out;
+}
+@keyframes block-onload {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.state-home-welcome .center-block .elevated-headline {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 76px;
+  line-height: 1.10574;
+  font-weight: 400;
+}
+.state-home-welcome .center-block .elevated-subhead {
+  margin-top: 0;
+  margin-bottom: 0.62em;
+  font-size: 42px;
+  line-height: 1.09091;
+  font-weight: 300;
+}
+.state-home-welcome .center-block .intro {
+  font-size: 22px;
+  line-height: 1.59091;
+  font-weight: 300;
+}
+.state-home-welcome .center-block .login-button {
+  padding: 5px 20px;
+  animation: botton-onload 2.5s linear;
+}
+@keyframes botton-onload {
+  0% {
+    opacity: 0;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.state-home-login,
+.state-home-register {
+  padding: 100px 0;
+}
+.state-home-login .form,
+.state-home-register .form {
+  width: 400px;
+  margin: auto;
+}
+.state-home-login .form .section-toolbar,
+.state-home-register .form .section-toolbar {
+  border-bottom: 1px solid #ddd;
+  color: #aaa;
+}
+.state-home-login .form .section-toolbar h3,
+.state-home-register .form .section-toolbar h3 {
+  margin-left: 10px;
+}
+.state-home-login .form .section-content,
+.state-home-register .form .section-content {
+  padding: 38px 18px 30px 18px;
+}
+.state-home-login .input-container,
+.state-home-register .input-container {
+  margin: 0 7px;
+}
+.state-home-login .warning,
+.state-home-register .warning {
+  margin: -10px 10px 10px 10px;
+}
+.state-home-login button md-progress-circular,
+.state-home-register button md-progress-circular {
+  margin-right: 10px;
+}
+.state-home-login button > *,
+.state-home-register button > * {
+  display: inline-block;
+  vertical-align: middle;
+}

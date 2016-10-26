@@ -1,0 +1,62 @@
+    <md-card >
+        <!--<img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">-->
+                <span class="md-headline">Answer the post</span>
+            <div >
+                <form name="questForm" layout="column">
+                    <span class="md-headline">Title:{{quest.title}}</span>
+                    <span class="md-headline">Time:{{quest.time}}</span>
+                    <span class="md-headline">Category:{{quest.category}}</span>
+
+                    <label><h>Steps:</h></label>
+
+
+                    <!--<span>{{qid}}</span>-->
+
+                    <div ng-repeat="step in steps" layout="column">
+
+                        <md-input-container class="md-block" layout="column" >
+                                <label>Title</label>
+                                <input ng-model="step.title">
+                        </md-input-container>
+
+                        <md-input-container layout="row">
+                            <md-switch ng-model="step.isItem">{{step.isItem ? "Is an item" : "Not an item"}}</md-switch>
+                        </md-input-container>
+
+                        <md-input-container>
+                        <label ng-show="step.isItem">Counts:</label> <input ng-model="step.count" ng-show="step.isItem">
+                        </md-input-container>
+                        <md-input-container layout="column">
+                            <label>Details:</label><textarea  md-maxlength="120" rows="4" md-select-on-focus ng-model="step.detail"></textarea>
+                        </md-input-container>
+
+
+                        <md-button ng-if="len(steps)>3" class="md-icon-button" aria-label="Favorite" ng-click="addStep()">
+                            <i class="material-icons">delete</i>
+                        </md-button>
+
+                    </div>
+
+
+                    <md-button class="md-icon-button" aria-label="Favorite" ng-click="addStep()">
+                        <i class="material-icons">note_add</i>
+                    </md-button>
+
+                    <md-switch ng-model="quest.hideUser">{{quest.hideUser? "Hide User" : "Display User"}}</md-switch>
+                </form>
+            </div>
+
+        <md-card-actions layout="row" layout-align="end center">
+            <md-button class="md-icon-button" aria-label="Favorite">
+                <i class="material-icons">save</i>
+            </md-button>
+            <md-button class="md-icon-button" aria-label="Settings" ng-click="submitAnswer()">
+                <i class="material-icons">done</i>
+            </md-button>
+        </md-card-actions>
+
+        <div ng-if="message" class="warning" layout-gt-sm="row">
+            <p>{{message}}</p>
+        </div>
+    </md-card>
+

@@ -10,6 +10,7 @@ angular.module('QuestClear').factory("userService", function (request) {
             password: password
         })
             .then(function (data) {
+                // console.log(data);
                 service.authResult = true;
                 service.user = {
                     uid: data.uid,
@@ -44,6 +45,7 @@ angular.module('QuestClear').factory("userService", function (request) {
         else {
             return request.post('/auth', {})
                 .then(function (data) {
+                    // console.log(data);
                     service.authResult = true;
                     service.user = {
                         uid: data.uid,
@@ -66,6 +68,58 @@ angular.module('QuestClear').factory("userService", function (request) {
                 service.authResult = false;
                 service.user = {};
             });
+    };
+
+    service.test=function(){
+             request.post('/panel/list',{
+          msg:"this is a test"
+      })
+          .then(function(data){
+              console.log(data)
+          })
+    };
+
+
+    service.fetchList=function(num){
+            request.post("/panel/fetch",{
+                num:num
+            })
+            .then(function(data){
+                return data
+            })
+    };
+
+    service.ask=function(content){
+        request.post("/panel/post",{
+            cont:content
+        })
+            .then(function(data){
+                return data
+            })
+    };
+
+    service.checkQ=function(qid){
+        request.post("/panel/checkQ",{
+            qid:qid
+        })
+            .then(function(data){
+                return data
+            })
+    };
+
+    service.checkA=function(qid){
+        request.post("/panel/checkA",{
+            qid:qid
+        })
+            .then(function(data){
+                return data
+            })
+    };
+
+    service.answer=function(ans){
+        request.post("/panel/answer",{
+            ans:ans
+        })
     };
 
     return service;

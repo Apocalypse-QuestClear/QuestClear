@@ -23,11 +23,32 @@ angular.module('QuestClear').config(function($urlRouterProvider, $stateProvider)
             url: "/start",
             templateUrl: 'views/start.html'
         })
+        .state('panel',{
+            url:"/panel",
+            templateUrl:'views/panel/panel.html',
+            controller:'PanelController'
+            }
+        )
+        .state('panel.list',{
+            url:"/list",
+            templateUrl:'views/panel/cardlist.html',
+            controller:'ListController'
+        })
+        .state('panel.post',{
+            url:"/post",
+            templateUrl:'views/panel/post.html',
+            controller:'PostController'
+        })
+        .state('panel.answer',{
+            url:"/answer",
+            templateUrl:'views/panel/answer.html',
+
+            controller:'AnswerController'
+    })
         .state('users', {
             url: "/users/:uid",
             templateUrl: 'views/users.html',
             controller: 'UsersController'
         });
-
     $urlRouterProvider.otherwise('/');
 });
