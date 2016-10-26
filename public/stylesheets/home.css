@@ -21,6 +21,7 @@
 }
 .state-home .home-container .home-bg-0 {
   transform: scale(1.02, 1.02);
+  transform-origin: 50% 50% -1000px;
 }
 .state-home .home-container .home-content-container {
   transition: opacity 0.5s ease-in-out;

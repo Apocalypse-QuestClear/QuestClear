@@ -6,21 +6,21 @@ angular.module("QuestClear")
         quesInfo=userService.checkQ($scope.qid);
         //$scope.quest=questInfo;
         $scope.quest={
-            title:'111',
-            time:'111',
-            category:'111'
+            title:'怎样做一个披萨？',
+            time:'2016-10-11',
+            category:'生活'
         };
 
         stepN=3;
-        step1={title:'第1步...', isItem:false, count:0, detail:""};
-        step2={title:'第2步...', isItem:false, count:0, detail:""};
-        step3={title:'第3步...', isItem:false, count:0, detail:""};
+        step1={title:'', isItem:false, count:0, detail:""};
+        step2={title:'', isItem:false, count:0, detail:""};
+        step3={title:'', isItem:false, count:0, detail:""};
 
         $scope.steps=[step1,step2,step3];
 
         $scope.addStep=function(){
             stepN+=1;
-            newStep={title:'第'+stepN+'步...',isItem:false,count:0,detail:''};
+            newStep={title:'',isItem:false,count:0,detail:''};
             $scope.steps.push(newStep);
         };
 
