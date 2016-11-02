@@ -1,4 +1,9 @@
 <div ui-view class="list-content-container" >
+    <div class="add-quest" layout="row" layout-align="end center" ui-sref="panel.post">
+        <md-icon md-font-set="material-icons">mode_edit</md-icon>
+        <span>提问</span>
+    </div>
+
     <quest-card ng-repeat="quest in quests">
     </quest-card>
 </div>

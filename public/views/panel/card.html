@@ -15,22 +15,23 @@
             <!--<p>{{card.content}}</p>-->
         <!--</md-content>-->
 
-        <md-card-actions layout="row" layout-align="end center">
+        <md-card-actions layout="row" layout-align="start center" layout-xs="column" layout-align-xs="center stretch">
             <span ng-if="quest.uid" class="q-uid">
                 <i class="material-icons">people</i>
                 <span>{{quest.username}}</span>
             </span>
             <span flex></span>
-            <md-button class="md-icon-button" aria-label="Favorite">
-                <i class="material-icons">bookmark_border</i>
-            </md-button>
-            <md-button ui-sref="panel.answer({qid:quest.qid})" class="md-icon-button" aria-label="Settings" ng-click="jumpToAnswer()">
-                <i class="material-icons">mode_edit</i>
-            </md-button>
-            <md-button class="md-icon-button" aria-label="Share">
-                <i class="material-icons">open_in_new</i>
-            </md-button>
-
+            <div layout="row" layout-align="end center">
+                <md-button class="md-icon-button" aria-label="Favorite">
+                    <i class="material-icons">bookmark_border</i>
+                </md-button>
+                <md-button ui-sref="panel.answer({qid:quest.qid})" class="md-icon-button" aria-label="Settings" ng-click="jumpToAnswer()">
+                    <i class="material-icons">mode_edit</i>
+                </md-button>
+                <md-button class="md-icon-button" aria-label="Share">
+                    <i class="material-icons">open_in_new</i>
+                </md-button>
+            </div>
         </md-card-actions>
     </md-card>
 </div>

@@ -22,4 +22,10 @@ angular.module('QuestClear').controller("LoginController", function ($scope, $st
                 $scope.waiting = false;
             });
     };
+
+    $scope.onKeypress = function ($event) {
+        if ($event.altKey === false && $event.keyCode === 13) {
+            $scope.login();
+        }
+    }
 });

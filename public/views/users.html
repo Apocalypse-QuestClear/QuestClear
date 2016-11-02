@@ -1,73 +1,78 @@
 <div class="state-users main-content">
-    <div class="side">
-        <div class="side-section">
-            <h4>关注的问题</h4>
-            <p>暂无</p>
-        </div>
-        <div class="side-section">
-            <h4>关注的回答</h4>
-            <p>暂无</p>
-        </div>
-        <div class="side-section">
-            <h4>{{state.params.uid === user.uid ? '我' : 'TA'}}的问题</h4>
-            <p>暂无</p>
-        </div>
-        <div class="side-section">
-            <h4>{{state.params.uid === user.uid ? '我' : 'TA'}}的回答</h4>
-            <p>暂无</p>
-        </div>
-    </div>
-
-    <div class="section">
-        <md-toolbar class="section-toolbar">
-            <div class="md-toolbar-tools">
-                <h2>
-                    <span>用户信息</span>
-                </h2>
-                <span flex></span>
-                <md-button ng-if="state.params.uid === user.uid" class="md-icon-button" aria-label="Edit" ng-click="edit()">
-                    <md-icon md-font-set="material-icons">mode_edit</md-icon>
-                </md-button>
+    <div layout="row" layout-align="start start" layout-xs="column" layout-align-xs="start stretch">
+        <div class="side" flex="30" flex-order="2" flex-xs="100">
+            <div class="side-section">
+                <h4>关注的问题</h4>
+                <p>暂无</p>
             </div>
-        </md-toolbar>
-        <md-content class="section-content">
-            <img class="user-avatar" src="images/user-avatar.svg" />
-            <div class="user-info">
-                <div class="md-subhead">用户名</div>
-                <div ng-if="!editMode" class="md-title">{{username}}</div>
-                <md-input-container ng-if="editMode">
-                    <input ng-model="newInfo.username" />
-                </md-input-container>
+            <div class="side-section">
+                <h4>关注的回答</h4>
+                <p>暂无</p>
+            </div>
+            <div class="side-section">
+                <h4>{{state.params.uid == user.uid ? '我' : 'TA'}}的问题</h4>
+                <p>暂无</p>
+            </div>
+            <div class="side-section">
+                <h4>{{state.params.uid == user.uid ? '我' : 'TA'}}的回答</h4>
+                <p>暂无</p>
+            </div>
+        </div>
 
-                <div ng-if="editMode" class="password-container">
-                    <div class="md-subhead">密码</div>
-                    <md-input-container md-no-float>
-                        <input type="password" ng-model="newInfo.password" placeholder="如不修改密码请留空" />
-                    </md-input-container>
-                    <div class="md-subhead">确认密码</div>
-                    <md-input-container md-no-float>
-                        <input type="password" ng-model="newInfo.confirmPassword" placeholder="如不修改密码请留空" />
-                    </md-input-container>
-                </div>
-
-                <div class="md-subhead">电子邮箱</div>
-                <div ng-if="!editMode" class="md-title">{{email}}</div>
-                <md-input-container ng-if="editMode">
-                    <input type="email" ng-model="newInfo.email" />
-                </md-input-container>
-
-                <div ng-if="message" class="warning" layout-gt-sm="row">
-                    <p>{{message}}</p>
-                </div>
-
-                <div ng-if="editMode" class="submit-button-container" layout-gt-sm="row">
-                    <md-button class="submit-button md-raised md-primary" ng-click="submit()" ng-disabled="waiting">
-                        <md-progress-circular ng-if="waiting" class="md-hue-1" md-mode="indeterminate" md-diameter="16px"></md-progress-circular>
-                        {{!waiting ? '确定' : '正在更新...'}}
+        <div class="section" flex flex-order="1">
+            <md-toolbar class="section-toolbar">
+                <div class="md-toolbar-tools">
+                    <h2>
+                        <span>用户信息</span>
+                    </h2>
+                    <span flex></span>
+                    <md-button ng-if="state.params.uid == user.uid" class="md-icon-button" aria-label="Edit" ng-click="edit()">
+                        <md-icon md-font-set="material-icons">mode_edit</md-icon>
                     </md-button>
-                    <md-button class="md-primary" ng-click="reset()">取消</md-button>
                 </div>
-            </div>
-        </md-content>
+            </md-toolbar>
+            <md-content class="section-content" layout="column" layout-align="start stretch">
+                <div layout="row" layout-align="start start">
+                    <img class="user-avatar" src="images/user-avatar.svg" flex="30" flex-offset="5" flex-order="2" />
+                    <div class="user-info" flex="" flex-order="1" layout="column" layout-align="start stretch">
+                        <div class="md-subhead">用户名</div>
+                        <div ng-if="!editMode" class="md-title">{{username}}</div>
+                        <md-input-container ng-if="editMode">
+                            <input ng-model="newInfo.username" />
+                        </md-input-container>
+
+                        <div ng-if="editMode" class="password-container" layout="column" layout-align="start stretch">
+                            <div class="md-subhead">密码</div>
+                            <md-input-container md-no-float>
+                                <input type="password" ng-model="newInfo.password" placeholder="如不修改密码请留空" />
+                            </md-input-container>
+                            <div class="md-subhead">确认密码</div>
+                            <md-input-container md-no-float>
+                                <input type="password" ng-model="newInfo.confirmPassword" placeholder="如不修改密码请留空" />
+                            </md-input-container>
+                        </div>
+
+                        <div class="md-subhead">电子邮箱</div>
+                        <div ng-if="!editMode" class="md-title">{{email}}</div>
+                        <md-input-container ng-if="editMode">
+                            <input type="email" ng-model="newInfo.email" />
+                        </md-input-container>
+                    </div>
+                </div>
+
+                <div layout="column"  layout-align="start stretch">
+                    <div ng-if="message" class="warning">
+                        <p>{{message}}</p>
+                    </div>
+                    <div ng-if="editMode" class="submit-button-container" layout="row">
+                        <md-button class="submit-button md-raised md-primary" ng-click="submit()" ng-disabled="waiting">
+                            <md-progress-circular ng-if="waiting" class="md-hue-1" md-mode="indeterminate" md-diameter="16px"></md-progress-circular>
+                            {{!waiting ? '确定' : '正在更新...'}}
+                        </md-button>
+                        <md-button class="submit-button md-primary" ng-click="reset()">取消</md-button>
+                    </div>
+                </div>
+            </md-content>
+        </div>
     </div>
 </div>

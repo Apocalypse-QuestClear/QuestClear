@@ -13,11 +13,7 @@
                 <md-button ui-sref="home.register({redir: state.params.redir})">注册</md-button>
             </div>
 
-            <div ng-if="user.uid" >
-
-                <md-button class="navbar-menu">
-                    <a ui-sref="panel.post">提问</a>
-                </md-button>
+            <div ng-if="user.uid">
 
                 <md-menu md-offset="0 42" md-position-mode="target-right target">
                     <md-button class="navbar-user" ng-click="$mdOpenMenu()">

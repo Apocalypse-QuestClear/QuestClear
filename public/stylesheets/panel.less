@@ -7,17 +7,35 @@ md-button .logo{
 .state-panel{
     //background-image: url("../../images/panel-bg-1-min.png");
     background-size: auto;
+
+    .add-quest {
+        margin-right: 20px;
+        margin-bottom: 0;
+        cursor: pointer;
+
+        @media screen and (max-width: 599px) {
+            margin-right: 5px;
+            margin-bottom: 10px;
+        }
+    }
+
     md-card {
         //background: gray;
         margin: 20px;
         padding: 20px 40px;
+
+        @media screen and (max-width: 599px) {
+            margin: 5px;
+            padding: 12px 18px;
+        }
+
         .q-time .q-title .q-uid{
             padding:50px !important;
         }
 
         .q-title {
             color: #259;
-            font-size: 21px;
+            font-size: 18px;
         }
 
         .q-time {
@@ -45,7 +63,8 @@ md-button .logo{
 
     .post {
         //background:transparent;
-        margin: 5% 20%;
+        margin: 5% auto;
+        max-width: 580px;
     }
     post-editor{
         md-input-container {
