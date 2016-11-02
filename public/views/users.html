@@ -1,25 +1,6 @@
 <div class="state-users main-content">
     <div layout="row" layout-align="start start" layout-xs="column" layout-align-xs="start stretch">
-        <div class="side" flex="30" flex-order="2" flex-xs="100">
-            <div class="side-section">
-                <h4>关注的问题</h4>
-                <p>暂无</p>
-            </div>
-            <div class="side-section">
-                <h4>关注的回答</h4>
-                <p>暂无</p>
-            </div>
-            <div class="side-section">
-                <h4>{{state.params.uid == user.uid ? '我' : 'TA'}}的问题</h4>
-                <p>暂无</p>
-            </div>
-            <div class="side-section">
-                <h4>{{state.params.uid == user.uid ? '我' : 'TA'}}的回答</h4>
-                <p>暂无</p>
-            </div>
-        </div>
-
-        <div class="section" flex flex-order="1">
+         <div class="section" flex>
             <md-toolbar class="section-toolbar">
                 <div class="md-toolbar-tools">
                     <h2>
@@ -53,7 +34,7 @@
                         </div>
 
                         <div class="md-subhead">电子邮箱</div>
-                        <div ng-if="!editMode" class="md-title">{{email}}</div>
+                        <div ng-if="!editMode" class="md-title">{{email || '&nbsp;'}}</div>
                         <md-input-container ng-if="editMode">
                             <input type="email" ng-model="newInfo.email" />
                         </md-input-container>
@@ -73,6 +54,24 @@
                     </div>
                 </div>
             </md-content>
+        </div>
+        <div class="side" flex="30" flex-xs="100">
+            <div class="side-section">
+                <h4>关注的问题</h4>
+                <p>暂无</p>
+            </div>
+            <div class="side-section">
+                <h4>关注的回答</h4>
+                <p>暂无</p>
+            </div>
+            <div class="side-section">
+                <h4>{{state.params.uid == user.uid ? '我' : 'TA'}}的问题</h4>
+                <p>暂无</p>
+            </div>
+            <div class="side-section">
+                <h4>{{state.params.uid == user.uid ? '我' : 'TA'}}的回答</h4>
+                <p>暂无</p>
+            </div>
         </div>
     </div>
 </div>

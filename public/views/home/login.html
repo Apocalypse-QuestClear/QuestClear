@@ -6,23 +6,23 @@
             </div>
         </md-toolbar>
         <md-content class="section-content" ng-keypress="onKeypress($event)">
-            <div layout-gt-sm="row">
-                <md-input-container class="md-block input-container" flex-gt-sm>
+            <div layout="row">
+                <md-input-container class="md-block input-container" flex>
                     <label>用户名</label>
                     <input ng-model="username" placeholder=" ">
                 </md-input-container>
             </div>
-            <div layout-gt-sm="row">
-                <md-input-container class="md-block input-container" flex-gt-sm>
+            <div layout="row">
+                <md-input-container class="md-block input-container" flex>
                     <label>密码</label>
                     <input type="password" ng-model="password" placeholder=" ">
                 </md-input-container>
             </div>
-            <div ng-if="message" class="warning" layout-gt-sm="row">
+            <div ng-if="message" class="warning" layout="row">
                 <p>{{message}}</p>
             </div>
-            <div layout-gt-sm="row">
-                <md-button class="md-raised md-accent" flex-gt-sm ng-click="login()" ng-disabled="waiting">
+            <div layout="row">
+                <md-button class="md-raised md-accent" flex ng-click="login()" ng-disabled="waiting">
                     <md-progress-circular ng-if="waiting" class="md-hue-1" md-mode="indeterminate" md-diameter="16px"></md-progress-circular>
                     {{!waiting ? '登录' : '正在登录...'}}
                 </md-button>

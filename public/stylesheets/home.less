@@ -4,7 +4,7 @@
         width: 100%;
         padding-bottom: 62.34%;
         box-sizing: border-box;
-        min-height: 623px;
+        min-height: 750px;
         overflow: hidden;
 
         .home-bg, .home-content-container {
@@ -14,10 +14,15 @@
             width: 100%;
         }
 
-        @media screen and (max-width: 1000px) {
-            width: 1000px;
-            height: 623px;
+        .home-bg {
+            min-width: 1300px;
+            max-width: 100%;
         }
+
+        //@media screen and (max-width: 1000px) {
+        //    width: 1000px;
+        //    height: 623px;
+        //}
 
         .home-bg-0 {
             transform: scale(1.02, 1.02);
@@ -57,9 +62,14 @@
 
 .state-home-welcome {
     position: relative;
-    top: 100px;
-    width: 800px;
+    padding-top: 100px;
+    width: 85%;
+    max-width: 800px;
     color: white;
+
+    @media screen and (max-width: 735px) {
+        padding-top: 13%;
+    }
 
     .center-block {
         text-align: center;
@@ -86,6 +96,11 @@
             font-size: 76px;
             line-height: 1.10574;
             font-weight: 400;
+
+            @media screen and (max-width: 735px) {
+                font-size: 44px;
+                margin-bottom: 0.25em;
+            }
         }
 
         .elevated-subhead {
@@ -94,12 +109,20 @@
             font-size: 42px;
             line-height: 1.09091;
             font-weight: 300;
+
+            @media screen and (max-width: 735px) {
+                font-size: 26px;
+            }
         }
 
         .intro {
             font-size: 22px;
-            line-height: 1.59091;
+            line-height: 1.7;
             font-weight: 300;
+
+            @media screen and (max-width: 735px) {
+                font-size:16px;
+            }
         }
 
         .login-button {
@@ -124,8 +147,13 @@
 .state-home-login, .state-home-register {
     padding: 100px 0;
 
+    @media screen and (max-width: 735px) {
+        padding: 10% 0;
+    }
+
     .form {
-        width: 400px;
+        width: 90%;
+        max-width: 400px;
         margin: auto;
 
         .section-toolbar {
