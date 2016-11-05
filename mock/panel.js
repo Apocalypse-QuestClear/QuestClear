@@ -23,7 +23,7 @@ router.post('/answer/:qid',function(req,res,next){
 });
 
 
-router.get('/questions/:keywords/:category/:uid/:qid/:limit/:after', function (req, res, next) {
+router.post('/questions', function (req, res, next) {
     params=req.param;
     var card1={
         tittle:'How to set up Apache2,PHP,MySql on Ubuntu 14.14?',
@@ -49,7 +49,7 @@ router.get('/questions/:keywords/:category/:uid/:qid/:limit/:after', function (r
         category:'Study',
         uid:'0004'
     };
-    return res.json([card1,card2,card3,card4]);
+    return res.json({list:[card1,card2,card3,card4]});
 });
 
 

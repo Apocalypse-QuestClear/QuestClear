@@ -61,12 +61,14 @@ router.post('/answer', function(req, res, next) {
 router.post('/checkA', function(req, res, next) {
     request.get(req, res, '/answer/' + req.body.qid)
         .then(function (data){
-
+            return res.json(data)
         })
 });
 
 router.post('/checkQ', function(req, res, next) {
-    request.get(req, res, '/questions/' + req.body.qid)
+    request.post(req, res, '/questions',{
+        qid:req.body.qid
+    })
         .then(function (data){
             return res.json(data);
         })

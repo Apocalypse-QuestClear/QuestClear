@@ -2,15 +2,24 @@
  * Created by EdwardChor on 15/10/2016.
  */
 angular.module("QuestClear")
-    .controller("AnswerController",function($scope,userService){
-        quesInfo=userService.checkQ($scope.qid);
+    .controller("AnswerController",function($scope,$state,panelService){
+
         //$scope.quest=questInfo;
-        $scope.quest={
-            title:'How to make a pizza?'
-        };
+
+        $scope.qid=$state.params.qid;
+        $scope.title=$state.params.title;
+        // console.log($scope.qid);
+        // console.log($scope.title);
+
+        //
+        // panelService.checkQ($scope.qid).then(function(data){
+        //     $scope.quesInfo=data
+        // });
+
+        // console.log($scope.questInfo);
 
         stepN=1;
-        step1={title:'', isItem:false, count:0, detail:""};
+        step1={title:'', isItem:false, count:"", detail:""};
 
         $scope.steps=[step1];
 
@@ -27,7 +36,9 @@ angular.module("QuestClear")
                 steps:$scope.steps,
                 hideUser:$scope.hideUser
             });
-            $scope=message=userService.answer(cnt)
+            panelService.answer(cnt).then(function(data){
+                $scope.message=data
+            })
         }
     })
     .directive('answerEditor',function(){

@@ -40,7 +40,7 @@ angular.module('QuestClear').config(function($urlRouterProvider, $stateProvider)
             controller:'PostController'
         })
         .state('panel.answer',{
-            url:"/answer",
+            url:"/answer/:qid?title=quest.title",
             templateUrl:'views/panel/answer.html',
 
             controller:'AnswerController'

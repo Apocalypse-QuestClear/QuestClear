@@ -3,7 +3,7 @@
             <div >
                 <form name="questForm" layout="column">
                     <div class="questInfo" layout="column">
-                        <span class="md-headline title">{{quest.title}}</span>
+                        <span class="md-headline title">{{title}}</span>
                       <!--<div layout="row">-->
                         <!--<span class="time .md-body-2" flex="50">提问时间:{{quest.time}}</span>-->
                         <!--<span class="category .md-body-2" flex="50">类别:{{quest.category}}</span>-->
@@ -17,19 +17,22 @@
 
                         <h4>步骤{{$index + 1}}：</h4>
 
-                        <div class="title-container" layout-gt-sm="row">
+                        <div class="title-container" layout-gt-sm="row" layout-sm="column">
                             <md-input-container class="answerTitle md-block" layout="column" flex="50">
-                                <label>{{step.isItem ? "物品名称" : "步骤标题"}}</label>
+                                <label>{{step.isItem ? "所需物品名称" : "步骤标题"}}</label>
                                 <input class="stepTitle" ng-model="step.title" placeholder=" ">
                             </md-input-container>
 
-                            <md-input-container class="md-block" flex-offset="2">
-                                <md-switch ng-model="step.isItem" >是否为物品</md-switch>
-                            </md-input-container>
 
-                            <md-input-container ng-show="step.isItem" flex="10" flex-offset="5">
-                                <label>物品数量</label> <input ng-model="step.count" ng-show="step.isItem">
-                            </md-input-container>
+                            <div layout="row">
+                                <md-input-container class="md-block" flex flex-sm="30">
+                                    <md-switch ng-model="step.isItem" >该项为物品</md-switch>
+                                </md-input-container>
+
+                                <md-input-container ng-show="step.isItem" flex flex-sm="20">
+                                    <label>物品数量</label> <input ng-model="step.count" ng-show="step.isItem" placeholder=" ">
+                                </md-input-container>
+                            </div>
                         </div>
 
                         <div layout="column">
@@ -51,7 +54,7 @@
                         <span>添加步骤</span>
                     </div>
 
-                    <md-switch ng-model="quest.hideUser">{{quest.hideUser? "匿名" : "显示您的信息"}}</md-switch>
+                    <md-switch ng-model="quest.hideUser">匿名发布</md-switch>
                 </form>
             </div>
 

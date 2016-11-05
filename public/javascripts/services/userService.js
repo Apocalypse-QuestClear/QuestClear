@@ -70,45 +70,5 @@ angular.module('QuestClear').factory("userService", function (request) {
             });
     };
 
-    service.test=function(){
-             request.post('/panel/list',{
-          msg:"this is a test"
-      })
-          .then(function(data){
-              console.log(data)
-          })
-    };
-
-
-    service.fetchList = function (num) {
-        return request.post("/panel/fetch", {
-            num: num
-        })
-    };
-
-    service.checkQ=function(qid){
-        request.post("/panel/checkQ",{
-            qid:qid
-        })
-            .then(function(data){
-                return data
-            })
-    };
-
-    service.checkA=function(qid){
-        request.post("/panel/checkA",{
-            qid:qid
-        })
-            .then(function(data){
-                return data
-            })
-    };
-
-    service.answer=function(ans){
-        request.post("/panel/answer",{
-            ans:ans
-        })
-    };
-
     return service;
 });
