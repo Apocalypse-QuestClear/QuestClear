@@ -7,15 +7,56 @@ md-button .logo .logoImg {
 .state-panel {
   background-size: auto;
 }
+.state-panel .add-quest {
+  margin-right: 20px;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+@media screen and (max-width: 599px) {
+  .state-panel .add-quest {
+    margin-right: 5px;
+    margin-bottom: 10px;
+  }
+}
 .state-panel md-card {
-  margin: 5% 10%;
-  padding: 5% 5%;
+  margin: 20px;
+  padding: 20px 40px;
+}
+@media screen and (max-width: 599px) {
+  .state-panel md-card {
+    margin: 5px;
+    padding: 12px 18px;
+  }
 }
 .state-panel md-card .q-time .q-title .q-uid {
   padding: 50px !important;
 }
+.state-panel md-card .q-title {
+  color: #259;
+  font-size: 18px;
+}
+.state-panel md-card .q-time {
+  color: #999;
+  font-size: 14px;
+}
+.state-panel md-card .q-uid > * {
+  vertical-align: middle;
+}
+.state-panel md-card md-chips .md-chips {
+  box-shadow: none;
+}
+.state-panel md-card md-chips .md-chips md-chip {
+  height: 22px;
+  line-height: 22px;
+  background-color: #eee;
+  font-size: 14px;
+}
 .state-panel .post {
-  margin: 5% 20%;
+  margin: 5% auto;
+  max-width: 580px;
+}
+.state-panel post-editor md-input-container {
+  width: 100%;
 }
 .state-panel .searchArea input,
 .state-panel .searchArea md-icon,
@@ -27,12 +68,48 @@ md-button .logo .logoImg {
   margin: 10px 0 !important;
 }
 .state-panel .state-panel-answer answer-editor .questInfo .title {
-  color: red !important;
+  color: #259 !important;
 }
 .state-panel .state-panel-answer answer-editor .questInfo .time,
 .state-panel .state-panel-answer answer-editor .questInfo .category {
   margin: 10px  0;
 }
+.state-panel .state-panel-answer answer-editor .title-container md-switch {
+  margin: 0;
+}
+.state-panel .state-panel-answer answer-editor textarea {
+  margin-top: 8px !important;
+  border-width: 1px !important;
+}
+.state-panel .state-panel-answer answer-editor .add-step-container {
+  cursor: pointer;
+}
+.state-panel .state-panel-answer answer-editor .add-step-container > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+.state-panel .state-panel-answer answer-editor .add-step-container .button-add-step {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: -5px;
+  margin-right: 0;
+}
+.state-panel .state-panel-answer answer-editor .stepContainer {
+  transition: height 0.5s ease-in-out;
+  overflow: hidden;
+}
 .state-panel .state-panel-answer answer-editor .stepContainer .stepTitle {
   width: 400px;
+}
+.state-panel .state-panel-answer answer-editor .stepContainer.ng-enter {
+  height: 0;
+}
+.state-panel .state-panel-answer answer-editor .stepContainer.ng-enter-active {
+  height: 345px;
+}
+.state-panel .state-panel-answer answer-editor .stepContainer.ng-leave {
+  height: 345px;
+}
+.state-panel .state-panel-answer answer-editor .stepContainer.ng-leave-active {
+  height: 0;
 }

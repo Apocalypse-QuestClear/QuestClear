@@ -3,7 +3,7 @@
   width: 100%;
   padding-bottom: 62.34%;
   box-sizing: border-box;
-  min-height: 623px;
+  min-height: 750px;
   overflow: hidden;
 }
 .state-home .home-container .home-bg,
@@ -13,11 +13,9 @@
   left: 0;
   width: 100%;
 }
-@media screen and (max-width: 1000px) {
-  .state-home .home-container {
-    width: 1000px;
-    height: 623px;
-  }
+.state-home .home-container .home-bg {
+  min-width: 1300px;
+  max-width: 100%;
 }
 .state-home .home-container .home-bg-0 {
   transform: scale(1.02, 1.02);
@@ -42,11 +40,20 @@
   position: relative;
   margin: auto;
 }
+.state-home .md-errors-spacer {
+  display: block;
+}
 .state-home-welcome {
   position: relative;
-  top: 100px;
-  width: 800px;
+  padding-top: 100px;
+  width: 85%;
+  max-width: 800px;
   color: white;
+}
+@media screen and (max-width: 735px) {
+  .state-home-welcome {
+    padding-top: 13%;
+  }
 }
 .state-home-welcome .center-block {
   text-align: center;
@@ -73,6 +80,12 @@
   line-height: 1.10574;
   font-weight: 400;
 }
+@media screen and (max-width: 735px) {
+  .state-home-welcome .center-block .elevated-headline {
+    font-size: 44px;
+    margin-bottom: 0.25em;
+  }
+}
 .state-home-welcome .center-block .elevated-subhead {
   margin-top: 0;
   margin-bottom: 0.62em;
@@ -80,10 +93,20 @@
   line-height: 1.09091;
   font-weight: 300;
 }
+@media screen and (max-width: 735px) {
+  .state-home-welcome .center-block .elevated-subhead {
+    font-size: 26px;
+  }
+}
 .state-home-welcome .center-block .intro {
   font-size: 22px;
-  line-height: 1.59091;
+  line-height: 1.7;
   font-weight: 300;
+}
+@media screen and (max-width: 735px) {
+  .state-home-welcome .center-block .intro {
+    font-size: 16px;
+  }
 }
 .state-home-welcome .center-block .login-button {
   padding: 5px 20px;
@@ -104,9 +127,16 @@
 .state-home-register {
   padding: 100px 0;
 }
+@media screen and (max-width: 735px) {
+  .state-home-login,
+  .state-home-register {
+    padding: 10% 0;
+  }
+}
 .state-home-login .form,
 .state-home-register .form {
-  width: 400px;
+  width: 90%;
+  max-width: 400px;
   margin: auto;
 }
 .state-home-login .form .section-toolbar,
