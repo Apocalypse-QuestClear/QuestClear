@@ -15,7 +15,7 @@ router.post('/login', function (req, res, next) {
             username: data.username
         });
     }).catch(function (err) {
-        return res.status(err.status).json({message: err.message});
+        next(err);
     });
 });
 
@@ -36,7 +36,7 @@ router.post('/register', function (req, res, next) {
             username: data.username
         });
     }).catch(function (err) {
-        return res.status(err.status).json({message: err.message});
+        next(err);
     });
 });
 
@@ -47,7 +47,7 @@ router.post('/auth', function (req, res, next) {
             username: data.username
         });
     }).catch(function (err) {
-        return res.status(err.status).json({message: err.message});
+        next(err);
     });
 });
 
@@ -56,7 +56,7 @@ router.post('/logout', function (req, res, next) {
         res.clearCookie('access-token');
         return res.json({});
     }).catch(function (err) {
-        return res.status(err.status).json({message: err.message});
+        next(err);
     });
 });
 

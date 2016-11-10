@@ -6,5 +6,6 @@ router.use('/logout', require('./logout'));
 router.use('/auth', require('./auth'));
 router.use('/panel',require('./panel'));
 router.use('/users', require('./users'));
+router.use('/answers', require('./answers'));
 
 module.exports = router;

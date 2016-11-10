@@ -10,9 +10,10 @@ service.request = function (req, res, method, requestUrl, data) {
     var mock = false;
     for (var i in config.mockList) {
         if (config.mockList.hasOwnProperty(i)) {
-            if (requestUrl.match(config.mockList[i])) {
+            if (requestUrl.match('^' + config.mockList[i] + '$')) {
                 requestUrl = config.mockUrlPrefix + requestUrl;
                 mock = true;
+                break;
             }
         }
     }

@@ -12,6 +12,10 @@ angular.module('QuestClear').controller("UsersController", function ($scope, $st
     request.get('/users/' + $state.params.uid).then(function (data) {
         $scope.username = data.username;
         $scope.email = data.email;
+        $scope.watchQuestions = data.watchQuestions;
+        $scope.watchAnswers = data.watchAnswers;
+        $scope.userQuestions = data.userQuestions;
+        $scope.userAnswers = data.userAnswers;
     });
 
     $scope.edit = function () {

@@ -58,19 +58,39 @@
         <div class="side" flex="30" flex-xs="100">
             <div class="side-section">
                 <h4>关注的问题</h4>
-                <p>暂无</p>
+                <p ng-if="watchQuestions.length === 0">暂无</p>
+                <ul>
+                    <li ng-repeat="item in watchQuestions">
+                        <a ui-sref="questions({qid: item.qid})">{{item.title}}</a>
+                    </li>
+                </ul>
             </div>
             <div class="side-section">
                 <h4>关注的回答</h4>
-                <p>暂无</p>
+                <p ng-if="watchAnswers.length === 0">暂无</p>
+                <ul>
+                    <li ng-repeat="item in watchAnswers">
+                        <a ui-sref="answers({aid: item.aid})">{{item.title}}</a>
+                    </li>
+                </ul>
             </div>
             <div class="side-section">
                 <h4>{{state.params.uid == user.uid ? '我' : 'TA'}}的问题</h4>
-                <p>暂无</p>
+                <p ng-if="userQuestions.length === 0">暂无</p>
+                <ul>
+                    <li ng-repeat="item in userQuestions">
+                        <a ui-sref="questions({qid: item.qid})">{{item.title}}</a>
+                    </li>
+                </ul>
             </div>
             <div class="side-section">
                 <h4>{{state.params.uid == user.uid ? '我' : 'TA'}}的回答</h4>
-                <p>暂无</p>
+                <p ng-if="userAnswers.length === 0">暂无</p>
+                <ul>
+                    <li ng-repeat="item in userAnswers">
+                        <a ui-sref="answers({aid: item.aid})">{{item.title}}</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
