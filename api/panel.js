@@ -1,6 +1,3 @@
-/**
- * Created by EdwardChor on 12/10/2016.
- */
 var express = require('express');
 var router = express.Router();
 var juration = require('juration');

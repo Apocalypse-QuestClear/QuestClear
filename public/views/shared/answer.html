@@ -1,0 +1,37 @@
+<div class="answer-container">
+    <md-card class="question" md-colors="grey">
+
+        <span class="q-title"><a ui-sref="answers({aid: answer.aid})">{{answer.title}}</a></span>
+        <span class="q-time">{{answer.time | date: 'yyyy-MM-dd HH:mm:ss'}}</span>
+
+        <div class="steps-container">
+            <div ng-repeat-start="step in answer.steps" class="section" md-theme="white" flex>
+                <md-toolbar class="section-toolbar">
+                    <div class="md-toolbar-tools">
+                        <h2>
+                            <span>{{step.title}}</span>
+                        </h2>
+                        <span ng-if="step.isItem" class="item-count">x{{step.count}}</span>
+                    </div>
+                </md-toolbar>
+                <md-content class="section-content" layout="column" layout-align="start stretch">
+                    <p>{{step.detail}}</p>
+                </md-content>
+            </div>
+            <div ng-repeat-end="" ng-if="$index !== answer.steps.length - 1" class="divider"></div>
+        </div>
+
+        <md-card-actions layout="row" layout-align="start center">
+            <span ng-if="answer.uid" class="q-uid">
+                <i class="material-icons">people</i>
+                <span>{{answer.username}}</span>
+            </span>
+            <span flex></span>
+            <div layout="row" layout-align="end center">
+                <md-button class="md-icon-button" aria-label="Favorite">
+                    <i class="material-icons">bookmark_border</i>
+                </md-button>
+            </div>
+        </md-card-actions>
+    </md-card>
+</div>
