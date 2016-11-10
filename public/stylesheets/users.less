@@ -92,5 +92,24 @@
 
     .side {
         flex: none !important;
+
+        @media screen and (min-width: 600px) {
+            width: 30%;
+        }
+
+        ul {
+            padding-left: 24px;
+            margin-bottom: 0;
+
+            li {
+                margin: 4px 0;
+            }
+        }
+
+        a {
+            color: #4181d7;
+            font-size: 14px;
+            text-decoration: none;
+        }
     }
 }

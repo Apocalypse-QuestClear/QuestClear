@@ -10,6 +10,8 @@ module.exports = {
         // '/logout',
         // '/auth',
         // '/questions',
-        // '/answer'
+        '/answers(/.*)?',
+        '/users/.*/watches/questions',
+        '/users/.*/watches/answers'
     ]
 };

@@ -15,4 +15,12 @@ router.put('/:uid', function (req, res, next) {
     }, 1000);
 });
 
+router.get('/:uid/watches/questions', function (req, res, next) {
+    return res.json([10013, 10014]);
+});
+
+router.get('/:uid/watches/answers', function (req, res, next) {
+    return res.json([]);
+});
+
 module.exports = router;
