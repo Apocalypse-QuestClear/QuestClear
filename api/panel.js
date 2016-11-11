@@ -33,6 +33,7 @@ router.post('/fetch', function(req, res, next) {
 });
 
 router.post('/post', function(req, res, next) {
+
     request.post(req, res, '/questions', {
         title:req.body.title,
         category:req.body.category[0],
@@ -47,6 +48,9 @@ router.post('/post', function(req, res, next) {
 });
 
 router.post('/answer', function(req, res, next) {
+
+    consle.log("this is panel/answer!");
+
     request.post(req,res,'/answers',{
         qid:req.body.ans.qid,
         title:req.body.ans.title,
@@ -74,4 +78,28 @@ router.post('/checkQ', function(req, res, next) {
         })
 });
 
+router.post('/querySearch',function(req,res,next){
+    request.get(req, res, '/questions?keywords=' + req.body.kw)
+        .then(function (data) {
+
+            data.forEach(function (item) {
+                item.category = [item.category];
+            });
+
+            return Promise.all(data.map(function (item) {
+                if (item.uid) {
+                    return request.get(req, res, '/users/' + item.uid).then(function (data) {
+                        item.username = data.username;
+                        return item;
+                    });
+                }
+                else {
+                    return item;
+                }
+            }));
+
+        }).then(function (data) {
+        return res.json(data);
+    });
+});
 module.exports = router;

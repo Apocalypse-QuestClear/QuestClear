@@ -8,15 +8,6 @@ angular.module("QuestClear")
 
         $scope.qid=$state.params.qid;
         $scope.title=$state.params.title;
-        // console.log($scope.qid);
-        // console.log($scope.title);
-
-        //
-        // panelService.checkQ($scope.qid).then(function(data){
-        //     $scope.quesInfo=data
-        // });
-
-        // console.log($scope.questInfo);
 
         stepN=1;
         step1={title:'', isItem:false, count:"", detail:""};
@@ -30,14 +21,15 @@ angular.module("QuestClear")
         };
 
         $scope.submitAnswer=function(){
-            cnt=json({
+            cnt={
                 qid:$scope.qid,
-                title:$scope.questInfo['title'],
+                title:$scope.title,
                 steps:$scope.steps,
                 hideUser:$scope.hideUser
-            });
+            };
             panelService.answer(cnt).then(function(data){
-                $scope.message=data
+                $scope.message=data;
+
             })
         }
     })

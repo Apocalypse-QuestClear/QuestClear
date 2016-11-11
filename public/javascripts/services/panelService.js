@@ -9,7 +9,7 @@ angular.module('QuestClear').factory('panelService',function(request){
             msg:"this is a test"
         })
             .then(function(data){
-                console.log(data)
+                // console.log(data)
             })
     };
 
@@ -36,8 +36,16 @@ angular.module('QuestClear').factory('panelService',function(request){
     };
 
     service.answer=function(ans){
-        request.post("/panel/answer",{
+
+        return request.post("/panel/answer",{
             ans:ans
+        })
+    };
+
+    service.searchQuery=function(query){
+        kw=query;
+        return request.post('/panel/querySearch',{
+            keywords:kw
         })
     };
 

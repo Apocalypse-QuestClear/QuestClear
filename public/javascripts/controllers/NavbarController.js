@@ -1,4 +1,4 @@
-angular.module('QuestClear').controller("NavbarController", function ($timeout,$q,$log,$scope, $state, userService) {
+angular.module('QuestClear').controller("NavbarController", function ($timeout,$q,$log,$scope, $state, userService,panelService) {
 
     $scope.$watch(function () {
         return userService.user;
@@ -8,18 +8,23 @@ angular.module('QuestClear').controller("NavbarController", function ($timeout,$
 
 
     var self = this;
+    var query='';
 
     self.simulateQuery = false;
     self.isDisabled    = false;
-
-    // list of `state` value/display objects
     self.candidates        = loadAll();
     self.querySearch   = querySearch;
     self.selectedItemChange = selectedItemChange;
     self.searchTextChange   = searchTextChange;
 
-    $scope.search=function(query){
+    $scope.search=function(){
 
+        panelService.searchQuery(query)
+            .then(function(data){
+                $state.go('panel.list',{
+                   quests:data
+                })
+            })
     };
 
     function querySearch (query) {
@@ -36,17 +41,15 @@ angular.module('QuestClear').controller("NavbarController", function ($timeout,$
 
     function searchTextChange(text) {
         $log.info('Text changed to ' + text);
+        query=text
     }
 
     function selectedItemChange(item) {
         $log.info('Item changed to ' + JSON.stringify(item));
     }
 
-    /**
-     * Build `states` list of key/value pairs
-     */
     function loadAll() {
-        var tmpCandidates = 'How to make a pizza?, How can I run faster?, How to cook?';
+        var tmpCandidates = '如何制作一个披萨？, 怎样跑得比香港记者快?, 如何拆掉室友的机械键盘?'; //作为侯选项，先给这个功能留一个空
 
         return tmpCandidates.split(/, +/g).map( function (state) {
             return {
@@ -57,9 +60,6 @@ angular.module('QuestClear').controller("NavbarController", function ($timeout,$
     }
 
 
-    /**
-     * Create filter function for a query string
-     */
     function createFilterFor(query) {
         var lowercaseQuery = angular.lowercase(query);
 
@@ -79,16 +79,5 @@ angular.module('QuestClear').controller("NavbarController", function ($timeout,$
     };
 
 });
-
-
-// ******************************
-// Internal methods
-// ******************************
-
-/**
- * Search for states... use $timeout to simulate
- * remote dataservice call.
- */
-
 
 
