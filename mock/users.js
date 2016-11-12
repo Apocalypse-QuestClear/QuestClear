@@ -23,4 +23,33 @@ router.get('/:uid/watches/answers', function (req, res, next) {
     return res.json([]);
 });
 
+router.get('/:uid/quests', function (req, res, next) {
+    return res.json([
+        {aid: 10001, title: 'Answer Test', status: false},
+        {aid: 10002, title: 'Answer Test', status: false}
+    ]);
+});
+
+router.get('/:uid/quests/:aid', function (req, res, next) {
+    return res.json({
+        status: false,
+        steps: [
+            {progress: 1},
+            {progress: 0}
+        ]
+    });
+});
+
+router.post('/:uid/quests/:aid', function (req, res, next) {
+    return res.json({});
+});
+
+router.delete('/:uid/quests/:aid', function (req, res, next) {
+    return res.json({});
+});
+
+router.patch('/:uid/quests/:aid/steps/:step_id', function (req, res, next) {
+    return res.json({});
+});
+
 module.exports = router;

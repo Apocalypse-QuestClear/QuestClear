@@ -7,32 +7,16 @@ var request = require(__base + 'request');
 router.post('/fetch', function(req, res, next) {
     request.get(req, res, '/questions?limit=' + req.body.num)
         .then(function (data) {
-
-            data.forEach(function (item) {
-                item.category = [item.category];
-            });
-
-            return Promise.all(data.map(function (item) {
-                if (item.uid) {
-                    return request.get(req, res, '/users/' + item.uid).then(function (data) {
-                        item.username = data.username;
-                        return item;
-                    });
-                }
-                else {
-                    return item;
-                }
-            }));
-
-        }).then(function (data) {
             return res.json(data);
+        }).catch(function (err) {
+            next(err);
         });
 });
 
 router.post('/post', function(req, res, next) {
     request.post(req, res, '/questions', {
         title:req.body.title,
-        category:req.body.category[0],
+        category:req.body.category,
         hideUser: req.body.hideUser
     })
         .then(function (data){

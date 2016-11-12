@@ -1,4 +1,4 @@
-<div class="answer-container">
+<div class="answer-container" ng-controller="AnswerController">
     <md-card class="question" md-colors="grey">
 
         <span class="q-title"><a ui-sref="answers({aid: answer.aid})">{{answer.title}}</a></span>
@@ -28,8 +28,14 @@
             </span>
             <span flex></span>
             <div layout="row" layout-align="end center">
-                <md-button class="md-icon-button" aria-label="Favorite">
-                    <i class="material-icons">bookmark_border</i>
+                <md-button class="md-icon-button button-watch" aria-label="关注">
+                    <i class="material-icons">visibility</i>
+                </md-button>
+                <md-button ng-if="!answer.accepted" class="md-icon-button button-accept" aria-label="接受任务" ng-click="acceptQuest()">
+                    <i class="material-icons">error</i>
+                </md-button>
+                <md-button ng-if="answer.accepted" class="md-icon-button button-quest" aria-label="已接受任务" ui-sref="quests">
+                    <i class="material-icons">help</i>
                 </md-button>
             </div>
         </md-card-actions>
