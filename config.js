@@ -12,6 +12,9 @@ module.exports = {
         // '/questions',
         // '/answers(/.*)?',
         '/users/.*/watches/questions',
-        '/users/.*/watches/answers'
+        '/users/.*/watches/answers',
+        '/users/.*/quests',
+        '/users/.*/quests/.*',
+        '/users/.*/quests/.*/steps/.*'
     ]
 };

@@ -57,6 +57,11 @@ angular.module('QuestClear').config(function($urlRouterProvider, $stateProvider)
             url: "/answers/:aid",
             templateUrl: 'views/answers.html',
             controller: 'AnswersController'
+        })
+        .state('quests', {
+            url: "/quests",
+            templateUrl: 'views/quests.html',
+            controller: 'QuestsController'
         });
     $urlRouterProvider.otherwise('/');
 });

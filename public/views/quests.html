@@ -1,0 +1,37 @@
+<div class="state-quests main-content">
+    <md-card ng-repeat="quest in quests" class="question" md-colors="grey">
+
+        <div layout="row">
+            <span class="q-title">
+                <i class="material-icons" ui-sref="answers({aid: quest.aid})">{{quest.steps.some(isStepNotDone) ? 'help' : 'check_circle'}}</i>
+                <a ui-sref="answers({aid: quest.aid})">{{quest.title}}</a>
+            </span>
+        </div>
+
+        <ul>
+            <li class="step-item" ng-repeat="step in quest.steps">
+                <div class="step-container" ng-init="notDone = isStepNotDone(step)" ng-class="notDone ? 'not-done' : ''">
+                    <span>{{step.title}}</span>
+                    <span ng-if="step.isItem">{{step.progress}}/{{step.count}}</span>
+                    <span ng-if="!isStepNotDone(step)">（完成）</span>
+                    <md-button ng-if="!step.isItem" ng-class="step.progress === 1 ? 'invisible' : ''" class="md-icon-button" aria-label="Done" ng-click="addProgress(step, $index, quest)">
+                        <i class="material-icons">done</i>
+                    </md-button>
+                    <md-button ng-if="step.isItem" ng-class="step.progress === step.count ? 'invisible' : ''" class="md-icon-button" aria-label="Add" ng-click="addProgress(step, $index, quest)">
+                        <i class="material-icons">add</i>
+                    </md-button>
+                    <div ng-if="!isStepNotDone(step)" class="mask"></div>
+                </div>
+            </li>
+        </ul>
+
+        <md-card-actions layout="row" layout-align="start center">
+            <span flex></span>
+            <div layout="row" layout-align="end center">
+                <md-button class="md-icon-button" aria-label="Cancel quest" ng-click="cancelQuest(quest, $index)">
+                    <i class="material-icons">clear</i>
+                </md-button>
+            </div>
+        </md-card-actions>
+    </md-card>
+</div>

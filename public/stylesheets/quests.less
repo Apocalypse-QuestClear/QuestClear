@@ -1,0 +1,49 @@
+.state-quests {
+    .q-title {
+        cursor: pointer;
+
+        .material-icons {
+            margin-right: 3px;
+        }
+
+        & > * {
+            vertical-align: middle;
+        }
+    }
+
+    .step-item {
+        height: 25px;
+    }
+
+    .step-container {
+        position: relative;
+        display: inline-block;
+        line-height: 36px;
+
+        .mask {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 255, 255, 0.7);
+            width: 100%;
+            height: 100%;
+            margin-left: -30px;
+        }
+
+        &.not-done {
+            .mask {
+                transition: transform 0.5s linear;
+                transform-origin: left;
+
+                &.ng-enter {
+                    transform: scaleX(0);
+
+                }
+
+                &.ng-enter.active {
+                    transform: scaleX(1);
+                }
+            }
+        }
+    }
+}
