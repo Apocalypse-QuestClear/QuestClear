@@ -3,9 +3,13 @@
  */
 angular.module('QuestClear')
     .controller("ListController",function($scope,panelService){
-        panelService.fetchList(10).then(function (data) {
-            $scope.quests = data;
-        });
+            console.log($scope.quests);
+            panelService.fetchList(10).then(function (data) {
+                $scope.quests = data;
+            });
+            console.log($scope.quests);
+
+
     })
     .directive('questCard', function () {
         return {

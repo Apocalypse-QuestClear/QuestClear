@@ -1,7 +1,8 @@
 angular.module('QuestClear').config(function($mdThemingProvider) {
     $mdThemingProvider.theme('white')
         .primaryPalette('grey', {
-            'hue-1': '50'
+            'hue-1': '50',
+            'hue-2': '300'
         })
         .accentPalette('blue')
         .warnPalette('red');

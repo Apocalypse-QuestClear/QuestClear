@@ -1,0 +1,78 @@
+md-card.question .q-time .q-title .q-uid {
+  padding: 50px !important;
+}
+md-card.question .q-title {
+  color: #259;
+  font-size: 18px;
+}
+md-card.question .q-title a {
+  text-decoration: none;
+  color: inherit;
+}
+md-card.question .q-time {
+  color: #999;
+  font-size: 14px;
+}
+md-card.question .q-uid > * {
+  vertical-align: middle;
+}
+md-card.question .button-quest {
+  margin-left: 6px !important;
+}
+md-card.question .button-watch {
+  margin-right: 6px !important;
+}
+md-card.question md-chips .md-chips {
+  box-shadow: none;
+}
+md-card.question md-chips .md-chips md-chip {
+  height: 22px;
+  line-height: 22px;
+  background-color: #eee;
+  font-size: 14px;
+}
+md-card.question .steps-container {
+  margin: 20px 0;
+}
+md-card.question .section {
+  margin: 0 20px;
+  box-shadow: none;
+  border: 1px solid #ddd;
+}
+@media screen and (max-width: 599px) {
+  md-card.question .section {
+    margin: 0;
+  }
+}
+md-card.question .section md-toolbar {
+  height: 41px;
+  min-height: 41px;
+  background-color: #f7f7f7;
+  border-bottom: 1px solid #ddd;
+}
+md-card.question .section md-toolbar .md-toolbar-tools {
+  height: 41px;
+}
+md-card.question .section md-toolbar h2 {
+  color: #555;
+  font-weight: 600;
+  font-size: 14px;
+}
+md-card.question .section md-toolbar .item-count {
+  margin-left: 5px;
+  color: #767676;
+  font-size: 14px;
+}
+md-card.question .section md-content {
+  background-color: #fff;
+}
+md-card.question .section md-content p {
+  margin: 0;
+  font-size: 14px;
+}
+md-card.question .divider {
+  margin: 0 20px;
+  height: 20px;
+  width: 20px;
+  border-right: 2px solid #eee;
+}

@@ -7,7 +7,7 @@
                 <!--<img class="logoImg" src="../images/logo.png">-->
             </md-button>
             <!-- fill up the space between left and right area -->
-            <span flex ng-if="!user.uid"></span>
+            <span flex ng-if="!user.uid" hide-xs></span>
 
             <div ng-if="!user.uid">
                 <md-button class="md-raised md-accent" ui-sref="home.login({redir: state.params.redir})">登录</md-button>
@@ -24,26 +24,20 @@
                         md-items="item in ctrl.querySearch(ctrl.searchText)"
                         md-item-text="item.display"
                         md-min-length="0"
-                        placeholder="Anything you wander?" flex="60" flex-offset="10">
+                        placeholder="Anything you wander?" flex="60" flex-offset="10" flex-sm="30" flex-offset-lt-lg="5">
                     <md-item-template>
                         <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
                     </md-item-template>
 
                 </md-autocomplete >
 
-                <!--<md-input-container flex="60" flex-offset="10">-->
-                    <!--<md-input  placeholder="Anything you wander?" >-->
-
-                    <!--</md-input>-->
-                <!--</md-input-container>-->
-
-                <md-button class="md-icon-button" flex="10">
+                <md-button class="md-icon-button" flex="10" flex-lt-lg="5">
                     <md-icon md-font-set="material-icons" ng-click="search()">search</md-icon>
                 </md-button>
 
-                <md-menu md-offset="0 42" md-position-mode="target-right target" flex="15" flex-offset="5">
+                <md-menu md-offset="0 42" md-position-mode="target-right target" flex="15" flex-offset="5" flex-lt-lg="10">
                     <md-button class="navbar-user" ng-click="$mdOpenMenu()">
-                        <img class="user-avatar" src="images/user-avatar.svg" />
+                        <img class="user-avatar" src="images/user-avatar.svg" hide-xs />
                         <span>
                             {{user.username}}
                             <md-icon md-font-set="material-icons">keyboard_arrow_down</md-icon>
@@ -56,6 +50,9 @@
                         </md-menu-item>
                         <md-menu-item>
                             <md-button>推送通知</md-button>
+                        </md-menu-item>
+                        <md-menu-item>
+                            <md-button ui-sref="quests">任务列表</md-button>
                         </md-menu-item>
                         <md-menu-item>
                             <md-button>我的关注</md-button>

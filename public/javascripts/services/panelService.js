@@ -4,6 +4,8 @@
 angular.module('QuestClear').factory('panelService',function(request){
     var service={};
 
+    var quests=[];
+
     service.test=function(){
         request.post('/panel/list',{
             msg:"this is a test"
@@ -43,10 +45,29 @@ angular.module('QuestClear').factory('panelService',function(request){
     };
 
     service.searchQuery=function(query){
-        kw=query;
+        keywords=query['keywords'];
+        category=query['category'];
+        uid=query['uid'];
+        limit=query['limit'];
+        after=query['after'];
         return request.post('/panel/querySearch',{
-            keywords:kw
+            keywords:keywords,
+            category:category,
+            uid:uid,
+            limit:limit,
+            after:after
         })
+    };
+
+
+    service.questsSetter=function(data){
+        console.log('quests set');
+        quests=data;
+    };
+
+    service.questsGetter=function(){
+        console.log('quests got');
+        return quests;
     };
 
     return service;

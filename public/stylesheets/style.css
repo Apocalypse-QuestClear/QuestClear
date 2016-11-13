@@ -69,3 +69,25 @@ body input {
 md-icon {
   margin: 0 5px;
 }
+.light-hr {
+  margin: 0 20px;
+  border-top: 1px solid #d8d8d8;
+}
+@media screen and (max-width: 599px) {
+  .light-hr {
+    margin: 10px 5px;
+  }
+}
+md-card {
+  margin: 20px;
+  padding: 20px 40px;
+}
+@media screen and (max-width: 599px) {
+  md-card {
+    margin: 5px;
+    padding: 12px 18px;
+  }
+}
+.invisible {
+  visibility: hidden;
+}

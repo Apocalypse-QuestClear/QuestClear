@@ -3,7 +3,9 @@
             <div >
                 <form name="questForm" layout="column">
                     <div class="questInfo" layout="column">
-                        <span class="md-headline title">{{title}}</span>
+                        <md-input-container flex flex-sm="20">
+                            <label>回答标题</label> <input ng-model="title" placeholder=" ">
+                        </md-input-container>
                       <!--<div layout="row">-->
                         <!--<span class="time .md-body-2" flex="50">提问时间:{{quest.time}}</span>-->
                         <!--<span class="category .md-body-2" flex="50">类别:{{quest.category}}</span>-->
@@ -54,7 +56,7 @@
                         <span>添加步骤</span>
                     </div>
 
-                    <md-switch ng-model="quest.hideUser">匿名发布</md-switch>
+                    <md-switch ng-model="hideUser" >匿名发布</md-switch>
                 </form>
             </div>
 

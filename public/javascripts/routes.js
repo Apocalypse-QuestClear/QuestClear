@@ -27,8 +27,7 @@ angular.module('QuestClear').config(function($urlRouterProvider, $stateProvider)
             url:"/panel",
             templateUrl:'views/panel/panel.html',
             controller:'PanelController'
-            }
-        )
+        })
         .state('panel.list',{
             url:"/list",
             templateUrl:'views/panel/cardList.html',
@@ -42,13 +41,27 @@ angular.module('QuestClear').config(function($urlRouterProvider, $stateProvider)
         .state('panel.answer',{
             url:"/answer/:qid?title=quest.title",
             templateUrl:'views/panel/answer.html',
-
             controller:'AnswerController'
-    })
+        })
         .state('users', {
             url: "/users/:uid",
             templateUrl: 'views/users.html',
             controller: 'UsersController'
+        })
+        .state('questions', {
+            url: "/questions/:qid",
+            templateUrl: 'views/questions.html',
+            controller: 'QuestionsController'
+        })
+        .state('answers', {
+            url: "/answers/:aid",
+            templateUrl: 'views/answers.html',
+            controller: 'AnswersController'
+        })
+        .state('quests', {
+            url: "/quests",
+            templateUrl: 'views/quests.html',
+            controller: 'QuestsController'
         });
     $urlRouterProvider.otherwise('/');
 });

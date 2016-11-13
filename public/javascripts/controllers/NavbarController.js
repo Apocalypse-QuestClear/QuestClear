@@ -8,7 +8,13 @@ angular.module('QuestClear').controller("NavbarController", function ($timeout,$
 
 
     var self = this;
-    var query='';
+    var keywords='';
+
+    $scope.query={'keywords':'',
+        'category':'',
+        'uid':'',
+        'limit':'',
+        'after':''};
 
     self.simulateQuery = false;
     self.isDisabled    = false;
@@ -18,12 +24,21 @@ angular.module('QuestClear').controller("NavbarController", function ($timeout,$
     self.searchTextChange   = searchTextChange;
 
     $scope.search=function(){
-
-        panelService.searchQuery(query)
+        console.log($scope.query);
+        $scope.query['keywords']=keywords;
+        console.log($scope.query);
+        panelService.searchQuery($scope.query)
             .then(function(data){
-                $state.go('panel.list',{
-                   quests:data
-                })
+                // $state.go('panel.list',{
+                //    quests:data
+                // })
+                console.log('得到了从后端返回的数据！');
+                console.log(data);
+                panelService.questsSetter(data);
+                $state.go('panel.list')
+            })
+            .catch(function(err){
+                console.log(err)
             })
     };
 
@@ -41,7 +56,7 @@ angular.module('QuestClear').controller("NavbarController", function ($timeout,$
 
     function searchTextChange(text) {
         $log.info('Text changed to ' + text);
-        query=text
+        keywords=text;
     }
 
     function selectedItemChange(item) {
@@ -49,8 +64,8 @@ angular.module('QuestClear').controller("NavbarController", function ($timeout,$
     }
 
     function loadAll() {
-        var tmpCandidates = '如何制作一个披萨？, 怎样跑得比香港记者快?, 如何拆掉室友的机械键盘?'; //作为侯选项，先给这个功能留一个空
-
+        // var tmpCandidates = '如何制作一个披萨？, 怎样跑得比香港记者快?, 如何拆掉室友的机械键盘?'; //作为侯选项，先给这个功能留一个空
+        var tmpCandidates = '';
         return tmpCandidates.split(/, +/g).map( function (state) {
             return {
                 value: state.toLowerCase(),

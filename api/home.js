@@ -10,12 +10,13 @@ router.post('/login', function (req, res, next) {
         password: req.body.password
     }).then(function (data) {
         res.cookie('access-token', data.token, { maxAge: juration.parse(data.expiresIn) * 1000, httpOnly: true });
+        res.cookie('uid', data.uid, { maxAge: juration.parse(data.expiresIn) * 1000 });
         return res.json({
             uid: data.uid,
             username: data.username
         });
     }).catch(function (err) {
-        return res.status(err.status).json({message: err.message});
+        next(err);
     });
 });
 
@@ -31,32 +32,39 @@ router.post('/register', function (req, res, next) {
         });
     }).then(function (data) {
         res.cookie('access-token', data.token, { maxAge: juration.parse(data.expiresIn) * 1000, httpOnly: true });
+        res.cookie('uid', data.uid, { maxAge: juration.parse(data.expiresIn) * 1000 });
         return res.json({
             uid: data.uid,
             username: data.username
         });
     }).catch(function (err) {
-        return res.status(err.status).json({message: err.message});
+        next(err);
     });
 });
 
 router.post('/auth', function (req, res, next) {
     request.post(req, res, '/auth', {}).then(function (data) {
-        return res.json({
-            uid: data.uid,
-            username: data.username
-        });
+        if (data.uid == req.cookies.uid) {
+            return res.json({
+                uid: data.uid,
+                username: data.username
+            });
+        }
+        else {
+            return res.status(401).json({message: 'uid mismatch.'});
+        }
     }).catch(function (err) {
-        return res.status(err.status).json({message: err.message});
+        next(err);
     });
 });
 
 router.post('/logout', function (req, res, next) {
     request.post(req, res, '/logout', {}).then(function (data) {
         res.clearCookie('access-token');
+        res.clearCookie('uid');
         return res.json({});
     }).catch(function (err) {
-        return res.status(err.status).json({message: err.message});
+        next(err);
     });
 });
 

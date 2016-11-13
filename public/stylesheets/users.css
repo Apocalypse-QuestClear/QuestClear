@@ -68,3 +68,20 @@
 .state-users .side {
   flex: none !important;
 }
+@media screen and (min-width: 600px) {
+  .state-users .side {
+    width: 30%;
+  }
+}
+.state-users .side ul {
+  padding-left: 24px;
+  margin-bottom: 0;
+}
+.state-users .side ul li {
+  margin: 4px 0;
+}
+.state-users .side a {
+  color: #4181d7;
+  font-size: 14px;
+  text-decoration: none;
+}
