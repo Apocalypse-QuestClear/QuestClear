@@ -62,14 +62,22 @@ router.post('/checkQ', function(req, res, next) {
 
 router.post('/querySearch',function(req,res,next){
     console.log(req.body);
-    //request.get(req, res, '/questions?keywords='+req.body.keywords+'&category='+req.body.category+'&uid='+req.body.uid+'&limit='+req.body.limit+'after='+req.body.after)
-    request.get(req, res, '/questions?limit=3')
+    _tmp='/questions';
+    console.log(_tmp);
+    request.get(req, res,_tmp,{
+        limit:3,
+        keyword:req.body.keywords,
+        uid:req.body.uid
+    })
         .then(function (data) {
-            console.log(data);
+            // console.log('=====');
+            // console.log(data);
+            // console.log('=====');
             return res.json(data);
         })
         .catch(function(err){
-            console.log(err)
+            console.log(err);
+            next(err)
         })
 
 });

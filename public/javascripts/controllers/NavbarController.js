@@ -23,24 +23,33 @@ angular.module('QuestClear').controller("NavbarController", function ($timeout,$
     self.selectedItemChange = selectedItemChange;
     self.searchTextChange   = searchTextChange;
 
+    // $scope.search=function(){
+    //      console.log($scope.query);
+    //     $scope.query['keywords']=keywords;
+    //     console.log($scope.query);
+    //     panelService.searchQuery($scope.query)
+    //         .then(function(data){
+    //             $state.go('panel.list',{
+    //                keywords:keywords
+    //             });
+    //             console.log('得到了从后端返回的数据！');
+    //             console.log(data);
+    //             panelService.questsSetter(data);
+    //
+    //
+    //         })
+    //         .catch(function(err){
+    //             console.log(err)
+    //         })
+    // };
+
     $scope.search=function(){
+        $state.go('panel.list',{
+            keywords:keywords
+        });
         console.log($scope.query);
-        $scope.query['keywords']=keywords;
-        console.log($scope.query);
-        panelService.searchQuery($scope.query)
-            .then(function(data){
-                // $state.go('panel.list',{
-                //    quests:data
-                // })
-                console.log('得到了从后端返回的数据！');
-                console.log(data);
-                panelService.questsSetter(data);
-                $state.go('panel.list')
-            })
-            .catch(function(err){
-                console.log(err)
-            })
     };
+
 
     function querySearch (query) {
         var results = query ? self.candidates.filter( createFilterFor(query) ) : self.candidates,
@@ -64,12 +73,12 @@ angular.module('QuestClear').controller("NavbarController", function ($timeout,$
     }
 
     function loadAll() {
-        // var tmpCandidates = '如何制作一个披萨？, 怎样跑得比香港记者快?, 如何拆掉室友的机械键盘?'; //作为侯选项，先给这个功能留一个空
         var tmpCandidates = '';
-        return tmpCandidates.split(/, +/g).map( function (state) {
+
+        return tmpCandidates.split(/, +/g).map( function (q) {
             return {
-                value: state.toLowerCase(),
-                display: state
+                value: q.toLowerCase(),
+                display: q
             };
         });
     }

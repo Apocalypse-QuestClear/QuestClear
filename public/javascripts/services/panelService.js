@@ -58,7 +58,15 @@ angular.module('QuestClear').factory('panelService',function(request){
             after:after
         })
     };
-
+    service.searchByKeywords=function(key){
+        return request.post('/panel/querySearch',{
+            keywords:key,
+            category:'',
+            uid:'',
+            limit:'',
+            after:''
+        })
+    };
 
     service.questsSetter=function(data){
         console.log('quests set');
