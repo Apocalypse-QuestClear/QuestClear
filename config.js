@@ -13,8 +13,8 @@ module.exports = {
         // '/answers(/.*)?',
         '/users/.*/watches/questions',
         '/users/.*/watches/answers',
-        '/users/.*/quests',
-        '/users/.*/quests/.*',
-        '/users/.*/quests/.*/steps/.*'
+        // '/users/.*/quests',
+        // '/users/.*/quests/.*',
+        // '/users/.*/quests/.*/steps/.*'
     ]
 };

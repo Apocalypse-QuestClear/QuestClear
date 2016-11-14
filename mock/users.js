@@ -16,7 +16,7 @@ router.put('/:uid', function (req, res, next) {
 });
 
 router.get('/:uid/watches/questions', function (req, res, next) {
-    return res.json([10013, 10014]);
+    return res.json([10006, 10007]);
 });
 
 router.get('/:uid/watches/answers', function (req, res, next) {
@@ -25,8 +25,8 @@ router.get('/:uid/watches/answers', function (req, res, next) {
 
 router.get('/:uid/quests', function (req, res, next) {
     return res.json([
-        {aid: 10001, title: 'Answer Test', status: false},
-        {aid: 10002, title: 'Answer Test', status: false}
+        {aid: 10000, status: false},
+        {aid: 10001, status: false}
     ]);
 });
 

@@ -4,7 +4,7 @@ angular.module('QuestClear').controller("QuestsController", function ($scope, re
     });
 
     $scope.addProgress = function (step, index, quest) {
-        request.post('/quests/modifyProgress', {aid: quest.aid, step_id: index, progress: ++step.progress});
+        request.post('/quests/modifyProgress', {aid: quest.aid, step_id: step.step_id, progress: ++step.progress});
     };
 
     $scope.isStepNotDone = function (step) {
