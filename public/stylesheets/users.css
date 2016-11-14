@@ -1,6 +1,3 @@
-.state-users .section {
-  margin-right: 341px;
-}
 .state-users .md-subhead {
   color: rgba(0, 0, 0, 0.54);
   font-size: 14px;
@@ -13,7 +10,6 @@
   padding: 0;
 }
 .state-users .md-input {
-  width: 300px;
   padding-left: 0;
   font-size: 20px;
 }
@@ -69,11 +65,23 @@
   display: inline-block;
   vertical-align: middle;
 }
-.state-users .user-avatar {
-  float: right;
-  height: 150px;
-  width: 150px;
+.state-users .side {
+  flex: none !important;
 }
-.state-users .user-info {
-  margin-right: 170px;
+@media screen and (min-width: 600px) {
+  .state-users .side {
+    width: 30%;
+  }
+}
+.state-users .side ul {
+  padding-left: 24px;
+  margin-bottom: 0;
+}
+.state-users .side ul li {
+  margin: 4px 0;
+}
+.state-users .side a {
+  color: #4181d7;
+  font-size: 14px;
+  text-decoration: none;
 }

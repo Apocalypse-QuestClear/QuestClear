@@ -15,11 +15,10 @@ router.get('/:qid', function(req, res, next) {
             var quests = args[2];
 
             answers.forEach(function (answer) {
-                if (quests.some(quest => quest.aid === answer.aid)) {
+                if (quests.some(quest => quest.aid === answer.aid))
                     answer.accepted = true;
-                }
-            });
 
+            });
             return res.json({
                 question: question,
                 answers: answers

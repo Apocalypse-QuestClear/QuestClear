@@ -28,6 +28,8 @@ service.request = function (req, res, method, requestUrl, data) {
         _.extend(urlObj.query, data);
     }
 
+    console.log(url.format(urlObj));
+
     return new Promise(function (resolve, reject) {
         request({
             method: method,

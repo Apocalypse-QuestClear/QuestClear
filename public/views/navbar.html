@@ -1,24 +1,46 @@
-<div ng-controller="NavbarController">
+<div ng-controller="NavbarController as ctrl">
     <md-toolbar md-theme="white" class="navbar md-primary md-hue-1">
 
-        <div class="md-toolbar-tools">
-            <md-button class="logo" ui-sref="home.welcome({redir: state.params.redir})">
+        <div class="md-toolbar-tools" >
+            <md-button class="logo" ui-sref="home.welcome({redir: state.params.redir})" hide-xs >
                 QuestClear
                 <!--<img class="logoImg" src="../images/logo.png">-->
             </md-button>
             <!-- fill up the space between left and right area -->
-            <span flex></span>
+            <span flex ng-if="!user.uid" hide-xs></span>
+
             <div ng-if="!user.uid">
                 <md-button class="md-raised md-accent" ui-sref="home.login({redir: state.params.redir})">登录</md-button>
                 <md-button ui-sref="home.register({redir: state.params.redir})">注册</md-button>
             </div>
 
-            <div ng-if="user.uid">
+            <div ng-if="user.uid" layout="row" flex>
+               <div layout="row" flex>
+                <md-autocomplete
+                        md-no-cache="ctrl.noCache"
+                        md-selected-item="ctrl.selectedItem"
+                        md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                        md-search-text="ctrl.searchText"
+                        md-selected-item-change="ctrl.selectedItemChange(item)"
+                        md-items="item in ctrl.querySearch(ctrl.searchText)"
+                        md-item-text="item.display"
+                        md-min-length="0"
+                        placeholder="Anything you wander?" flex="60" flex-offset-gt-xs="10" flex-xs="30" >
+                    <md-item-template>
+                        <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                    </md-item-template>
 
-                <md-menu md-offset="0 42" md-position-mode="target-right target">
+                </md-autocomplete >
+
+                <md-button class="md-icon-button" >
+                    <md-icon md-font-set="material-icons" ng-click="search()">search</md-icon>
+                </md-button>
+               </div>
+
+                <md-menu md-offset="0 42" md-position-mode="target-right target"  flex-offset-gt-xs="5" >
                     <md-button class="navbar-user" ng-click="$mdOpenMenu()">
                         <img class="user-avatar" src="images/user-avatar.svg" />
-                        <span>
+                        <span hide-xs>
                             {{user.username}}
                             <md-icon md-font-set="material-icons">keyboard_arrow_down</md-icon>
                         </span>

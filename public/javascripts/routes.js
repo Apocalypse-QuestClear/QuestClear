@@ -29,7 +29,7 @@ angular.module('QuestClear').config(function($urlRouterProvider, $stateProvider)
             controller:'PanelController'
         })
         .state('panel.list',{
-            url:"/list",
+            url:"/list?keywords",
             templateUrl:'views/panel/cardList.html',
             controller:'ListController'
         })
@@ -39,7 +39,7 @@ angular.module('QuestClear').config(function($urlRouterProvider, $stateProvider)
             controller:'PostController'
         })
         .state('panel.answer',{
-            url:"/answer",
+            url:"/answer/:qid?title=quest.title",
             templateUrl:'views/panel/answer.html',
             controller:'AnswerController'
         })

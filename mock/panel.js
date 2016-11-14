@@ -9,48 +9,52 @@ router.post('/list', function (req, res, next) {
     return res.json({msg:'helloworld'});
 });
 
+
 router.post('/answer',function(req,res,next){
-   return res.json({
-       msg:'answering'
-   })
+    return res.json({
+        aid:'000'
+    })
 });
 
 
-router.post('/answer/:qid',function(req,res,next){
+router.post('/questions/:qid',function(req,res,next){
     return res.json({
         msg:'gotTheAnswer'
     })
 });
 
-
-router.get('/questions/:keywords/:category/:uid/:qid/:limit/:after', function (req, res, next) {
+router.post('/questions/:keywords', function (req, res, next) {
     params=req.param;
+    console.log(param);
     var card1={
-        tittle:'How to set up Apache2,PHP,MySql on Ubuntu 14.14?',
+        tittle:'怎样在Ubuntu 14.14搭建网络环境？',
         time:'2015-09-23',
-        category:'Study',
+        category:'学习',
         uid:'0001'
     };
     var card2={
-        tittle:'How can I run faster than H.K. journalist?',
+        tittle:'test',
         time:'2015-09-23',
-        category:'Study',
+        category:'学习',
         uid:'0002'
     };
     var card3={
-        tittle:'How to make a Hawaii pizza?',
+        tittle:'如何制作一个披萨？',
         time:'2015-09-23',
-        category:'Study',
+        category:'学习',
         uid:'0003'
     };
     var card4={
-        tittle:'What is the professional way to chat with Wallace? ',
+        tittle:'如何提高姿势水平? ',
         time:'2015-09-23',
-        category:'Study',
+        category:'学习',
         uid:'0004'
     };
-    return res.json([card1,card2,card3,card4]);
+    return res.json({list:[card1,card2,card3,card4]});
 });
 
+// router.post('/questions',function(req,res,next){
+//
+// });
 
 module.exports = router;

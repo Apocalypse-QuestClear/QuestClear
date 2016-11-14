@@ -12,9 +12,11 @@ router.get('/:aid', function(req, res, next) {
             var answer = args[0];
             var quests = args[1];
 
-            if (quests.some(quest => quest.aid === parseInt(req.params.aid))) {
-                answer.accepted = true;
-            }
+            if (quests.some( quest => quest.aid === parseInt(req.params.aid)))
+                {
+                    answer.accepted = true;
+                }
+
 
             return res.json(answer);
 

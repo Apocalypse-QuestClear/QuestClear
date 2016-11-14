@@ -13,6 +13,11 @@
   font-size: 16px;
   text-transform: none;
 }
+@media screen and (max-width: 599px) {
+  .navbar .navbar-user {
+    min-width: auto;
+  }
+}
 .navbar .navbar-user > * {
   vertical-align: middle;
 }
