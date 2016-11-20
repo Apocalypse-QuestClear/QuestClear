@@ -17,6 +17,7 @@ angular.module('QuestClear')
         }
 
 
+
     })
     .directive('questCard', function () {
         return {

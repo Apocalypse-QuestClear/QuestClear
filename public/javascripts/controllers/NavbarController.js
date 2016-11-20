@@ -23,26 +23,6 @@ angular.module('QuestClear').controller("NavbarController", function ($timeout,$
     self.selectedItemChange = selectedItemChange;
     self.searchTextChange   = searchTextChange;
 
-    // $scope.search=function(){
-    //      console.log($scope.query);
-    //     $scope.query['keywords']=keywords;
-    //     console.log($scope.query);
-    //     panelService.searchQuery($scope.query)
-    //         .then(function(data){
-    //             $state.go('panel.list',{
-    //                keywords:keywords
-    //             });
-    //             console.log('得到了从后端返回的数据！');
-    //             console.log(data);
-    //             panelService.questsSetter(data);
-    //
-    //
-    //         })
-    //         .catch(function(err){
-    //             console.log(err)
-    //         })
-    // };
-
     $scope.search=function(){
         $state.go('panel.list',{
             keywords:keywords
@@ -93,8 +73,6 @@ angular.module('QuestClear').controller("NavbarController", function ($timeout,$
 
     }
 
-
-
     $scope.logout = function () {
         userService.logout()
             .then(function () {
@@ -103,5 +81,4 @@ angular.module('QuestClear').controller("NavbarController", function ($timeout,$
     };
 
 });
-
 

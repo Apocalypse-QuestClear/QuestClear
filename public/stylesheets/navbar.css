@@ -26,6 +26,9 @@
   height: 30px;
   margin-right: 5px;
 }
+.navbar .navbar-user md-select.searchTag {
+  margin: 0;
+}
 .navbar-menu {
   padding: 0;
 }
