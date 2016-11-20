@@ -9,6 +9,7 @@ angular.module("QuestClear")
         $scope.qid=$state.params.qid;
         // $scope.title=$state.params.title;
 
+        console.log($scope.qid);
         stepN=1;
         step1={title:'', isItem:false, count:"", detail:""};
 
@@ -36,7 +37,14 @@ angular.module("QuestClear")
                     $scope.showAlert(info);
                     $state.go('panel.list')
                 }
+                // else{
+                //     info='提交失败';
+                //     $scope.showAlert(info)
+                // }
             })
+                .catch(function(err){
+                    // console.log(err);
+                })
         };
 
         // showCustomToast = function(info) {
@@ -48,7 +56,7 @@ angular.module("QuestClear")
         //     });
         // };
 
-        $scope.showAlert = function(ev) {
+        $scope.showAlert = function(info) {
             // Appending dialog to document.body to cover sidenav in docs app
             // Modal dialogs should fully cover application
             // to prevent interaction outside of dialog
@@ -56,11 +64,11 @@ angular.module("QuestClear")
                 $mdDialog.alert()
                     .parent(angular.element(document.querySelector('#popupContainer')))
                     .clickOutsideToClose(true)
-                    .title('提交结果')
-                    .textContent('成功提交了回答')
+                    .title(info)
+                    .textContent(info)
                     .ariaLabel('')
                     .ok('朕知道了')
-                    .targetEvent(ev)
+                    .targetEvent()
             );
         };
     })

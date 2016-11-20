@@ -40,7 +40,8 @@ router.post('/answer', function(req, res, next) {
             return res.json(data);
         })
         .catch(function(err){
-            console.log(err)
+            // console.log(err);
+            return res.json(err);
     });
 });
 
