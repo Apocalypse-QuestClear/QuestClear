@@ -9,7 +9,7 @@ angular.module("QuestClear")
         $scope.qid=$state.params.qid;
         // $scope.title=$state.params.title;
 
-        console.log($scope.qid);
+
         stepN=1;
         step1={title:'', isItem:false, count:"", detail:""};
 

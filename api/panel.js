@@ -66,8 +66,10 @@ router.post('/querySearch',function(req,res,next){
     _tmp='/questions';
     console.log(_tmp);
     request.get(req, res,_tmp,{
-        limit:3,
+        limit:req.body.limit,
         keyword:req.body.keywords,
+        category:req.body.category,
+        after:req.body.after,
         uid:req.body.uid
     })
         .then(function (data) {

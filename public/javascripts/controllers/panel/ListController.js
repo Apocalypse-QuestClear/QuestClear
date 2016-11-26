@@ -16,7 +16,35 @@ angular.module('QuestClear')
 
         }
 
+        $scope.jumpToAnswer=function(quest){
+            $state.go('^.answer',{
+                qid:quest.qid
+            })
 
+        };
+
+        $scope.test=function(input){
+            console.log(input)
+
+        };
+
+        $scope.chipSearch=function(cate) {
+            panelService.searchByCategory(cate[0])
+                .then(function (data) {
+                    console.log(data);
+                    $scope.quests=data
+                });
+
+        };
+
+
+        $scope.uidSearch=function(uid){
+            panelService.searchByUid(uid)
+                .then(function (data) {
+                    console.log(data);
+                    $scope.quests=data
+                });
+        }
 
     })
     .directive('questCard', function () {
