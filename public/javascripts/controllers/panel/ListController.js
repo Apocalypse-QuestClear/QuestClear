@@ -2,50 +2,36 @@
  * Created by EdwardChor on 11/10/2016.
  */
 angular.module('QuestClear')
-    .controller("ListController",function($timeout,$q,$log,$scope,$state,panelService){
+    .controller("ListController",function($scope, $state, panelService, request){
 
-        if($state.params.keywords){
-            panelService.searchByKeywords($state.params.keywords).then(function(data){
-                $scope.quests = data;
-            })
+        $scope.titles = [];
+
+        if ($state.params.keywords) {
+            $scope.titles.push('关键词为"' + $state.params.keywords + '"');
         }
-        else{
-            panelService.fetchList(10).then(function (data) {
-                $scope.quests = data;
+
+        if ($state.params.uid) {
+            request.get('/users/' + $state.params.uid).then(function (data) {
+                $scope.titles.push('用户为"' + data.username + '"');
             });
-
         }
 
-        $scope.jumpToAnswer=function(quest){
-            $state.go('^.answer',{
-                qid:quest.qid
-            })
-
-        };
-
-        $scope.test=function(input){
-            console.log(input)
-
-        };
-
-        $scope.chipSearch=function(cate) {
-            panelService.searchByCategory(cate[0])
-                .then(function (data) {
-                    console.log(data);
-                    $scope.quests=data
-                });
-
-        };
-
-
-        $scope.uidSearch=function(uid){
-            panelService.searchByUid(uid)
-                .then(function (data) {
-                    console.log(data);
-                    $scope.quests=data
-                });
+        if ($state.params.category) {
+            $scope.titles.push('类别为"' + $state.params.category + '"');
         }
 
+        $scope.$watch('titles', function (titles) {
+            if (titles.length > 0) {
+                $scope.title = titles.join('，') + '的问题：';
+            }
+            else {
+                $scope.title = '';
+            }
+        }, true);
+
+        panelService.search({keywords: $state.params.keywords, uid: $state.params.uid, category: $state.params.category}).then(function(data){
+            $scope.quests = data;
+        });
     })
     .directive('questCard', function () {
         return {

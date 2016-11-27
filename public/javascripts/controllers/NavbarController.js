@@ -1,4 +1,4 @@
-angular.module('QuestClear').controller("NavbarController", function ($timeout,$q,$log,$scope, $state, userService,panelService) {
+angular.module('QuestClear').controller("NavbarController", function ($scope, $state, userService) {
 
     $scope.$watch(function () {
         return userService.user;
@@ -6,72 +6,21 @@ angular.module('QuestClear').controller("NavbarController", function ($timeout,$
         $scope.user = user;
     });
 
+    $scope.query = {keywords: ''};
 
-    var self = this;
-    var keywords='';
-
-    $scope.query={'keywords':'',
-        'category':'',
-        'uid':'',
-        'limit':'',
-        'after':''};
-
-    self.simulateQuery = false;
-    self.isDisabled    = false;
-    self.candidates        = loadAll();
-    self.querySearch   = querySearch;
-    self.selectedItemChange = selectedItemChange;
-    self.searchTextChange   = searchTextChange;
-
-    $scope.search=function(){
+    $scope.search = function (){
         $state.go('panel.list',{
-            keywords:keywords
+            keywords: $scope.query.keywords,
+            uid: undefined,
+            category: undefined
         });
-        console.log($scope.query);
     };
 
-
-    function querySearch (query) {
-        var results = query ? self.candidates.filter( createFilterFor(query) ) : self.candidates,
-            deferred;
-        if (self.simulateQuery) {
-            deferred = $q.defer();
-            $timeout(function () { deferred.resolve( results ); }, Math.random() * 1000, false);
-            return deferred.promise;
-        } else {
-            return results;
+    $scope.onSearchKeyUp = function (event) {
+        if (event.keyCode === 13) {
+            $scope.search();
         }
-    }
-
-    function searchTextChange(text) {
-        $log.info('Text changed to ' + text);
-        keywords=text;
-    }
-
-    function selectedItemChange(item) {
-        $log.info('Item changed to ' + JSON.stringify(item));
-    }
-
-    function loadAll() {
-        var tmpCandidates = '';
-
-        return tmpCandidates.split(/, +/g).map( function (q) {
-            return {
-                value: q.toLowerCase(),
-                display: q
-            };
-        });
-    }
-
-
-    function createFilterFor(query) {
-        var lowercaseQuery = angular.lowercase(query);
-
-        return function filterFn(state) {
-            return (state.value.indexOf(lowercaseQuery) === 0);
-        };
-
-    }
+    };
 
     $scope.logout = function () {
         userService.logout()

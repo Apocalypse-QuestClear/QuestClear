@@ -4,19 +4,21 @@
         <span class="q-title"><a ui-sref="questions({qid: quest.qid})">{{quest.title}}</a></span>
         <span class="q-time">{{quest.time | date: 'yyyy-MM-dd HH:mm:ss'}}</span>
         <span class="q-category">
-                <md-chips ng-model="quest.category" md-removable="false" readonly="true" ng-click="chipSearch(quest.category)">
-                    <md-chip-template>
-                      {{$chip}}
-                    </md-chip-template>
-                </md-chips>
+            <md-chips ng-model="quest.category" md-removable="false" readonly="true" ui-sref="panel.list({category: quest.category,
+                keywords: undefined,
+                uid: undefined
+                })">
+                <md-chip-template>
+                  {{$chip}}
+                </md-chip-template>
+            </md-chips>
         </span>
 
-        <!--<md-content flex layout-padding>-->
-            <!--<p>{{card.content}}</p>-->
-        <!--</md-content>-->
-
         <md-card-actions layout="row" layout-align="start center" layout-xs="column" layout-align-xs="center stretch">
-            <span ng-if="quest.uid" class="q-uid" ng-click="uidSearch(quest.uid)">
+            <span ng-if="quest.uid" class="q-uid" ui-sref="panel.list({category: undefined,
+                keywords: undefined,
+                uid: quest.uid
+                })">
                 <i class="material-icons">people</i>
                 <span>{{quest.username}}</span>
             </span>
@@ -25,7 +27,7 @@
                 <md-button class="md-icon-button" aria-label="Favorite">
                     <i class="material-icons">visibility</i>
                 </md-button>
-                <md-button  ng-click="jumpToAnswer(quest)"  class="md-icon-button" aria-label="Settings">
+                <md-button ui-sref="panel.answer({qid:quest.qid})" class="md-icon-button" aria-label="Settings">
                     <i class="material-icons">mode_edit</i>
                 </md-button>
 

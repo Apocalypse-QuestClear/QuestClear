@@ -14,7 +14,7 @@ angular.module("QuestClear")
                 hideUser: $scope.hideUser
             }).then(function (data) {
                 $scope.message = null;
-                $state.go('panel.list');
+                $state.go('questions', {qid: data.qid});
             }).catch(function (msg) {
                 $scope.message = msg;
             });

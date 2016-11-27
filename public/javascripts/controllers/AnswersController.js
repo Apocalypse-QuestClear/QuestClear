@@ -1,28 +1,15 @@
 angular.module('QuestClear').controller("AnswersController", function ($scope, $state, request,userService) {
     request.get('/answers/' + $state.params.aid).then(function (data) {
-        $scope.quests = data.question;
+        $scope.quest = data.question;
         $scope.answer = data;
-        console.log($scope.answer);
+        $scope.records = data.comments;
+        processData($scope.records);
     });
 
     $scope.ratingValue=0;
     $scope.max=5;
     $scope.readonly=false;
     $scope.uid=userService.user.uid;
-
-    request.get('/answers/'+$state.params.aid+'/comments',{
-        limit:'',
-        after:''
-    }).then(function(data){
-        console.log(data);
-        _records=data;
-        processData(data);
-    })
-        .catch(function(err){
-            $scope.records=undefined;
-            processData([])
-        });
-
 
     $scope.subComment=function(){
         console.log($scope.review);

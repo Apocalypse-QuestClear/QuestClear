@@ -1,7 +1,11 @@
 angular.module('QuestClear').controller("MainController", function ($scope, $transitions, $state, $location, userService) {
     var unbindEvent = $transitions.onBefore({}, function($transition$) {
         if ($transition$.to().name === 'start') {
-            return $transition$.router.stateService.target('panel.list');
+            return $transition$.router.stateService.target('panel.list', {
+                keywords: undefined,
+                uid: undefined,
+                category: undefined
+            });
         }
 
         return userService.auth()

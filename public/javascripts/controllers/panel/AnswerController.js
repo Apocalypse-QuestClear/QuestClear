@@ -35,7 +35,7 @@ angular.module("QuestClear")
                 if(data['aid']){
                     info='提交成功';
                     $scope.showAlert(info);
-                    $state.go('panel.list')
+                    $state.go('answers', {aid: data.aid});
                 }
                 // else{
                 //     info='提交失败';

@@ -3,11 +3,8 @@
 
         <div class="md-toolbar-tools" >
             <md-button class="logo" ui-sref="home.welcome({redir: state.params.redir})" hide-xs >
-            <!--<md-button class="logo" ui-sref="panel.list" hide-xs >-->
                 QuestClear
-                <!--<img class="logoImg" src="../images/logo.png">-->
             </md-button>
-            <!-- fill up the space between left and right area -->
             <span flex ng-if="!user.uid" hide-xs></span>
 
             <div ng-if="!user.uid">
@@ -17,33 +14,17 @@
 
             <div ng-if="user.uid" layout="row" flex= flex-offset-gt-xs="10">
                <div layout="row" flex>
-                   <!--<md-select ng-model="searchTag" class="searchTag">-->
-                       <!--<md-select-header class="demo-select-header">-->
-                       <!--</md-select-header>-->
-                       <!--&lt;!&ndash;<md-optgroup label="搜索类别">&ndash;&gt;-->
-                           <!--&lt;!&ndash;<md-option ng-value="tag" ng-repeat="tag in ['问题','回答']">{{tag}}</md-option>&ndash;&gt;-->
-                       <!--&lt;!&ndash;</md-optgroup>&ndash;&gt;-->
-                   <!--</md-select>-->
-                <md-autocomplete
-                        md-no-cache="ctrl.noCache"
-                        md-selected-item="ctrl.selectedItem"
-                        md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
-                        md-search-text="ctrl.searchText"
-                        md-selected-item-change="ctrl.selectedItemChange(item)"
-                        md-items="item in ctrl.querySearch(ctrl.searchText)"
-                        md-item-text="item.display"
-                        md-min-length="0"
-                        placeholder="Anything you wander?" flex="60" flex-xs="30" flex-offset="10">
-                    <md-item-template>
-                        <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
-                    </md-item-template>
 
-                </md-autocomplete >
+                   <md-input-container flex="60" flex-xs="30" flex-offset="10">
+                       <label></label>
+                       <input ng-model="query.keywords" ng-keyup="onSearchKeyUp($event)" placeholder="Anything you wander?">
+                   </md-input-container>
 
-                <md-button class="md-icon-button" >
-                    <md-icon md-font-set="material-icons" ng-click="search()">search</md-icon>
-                </md-button>
-               </div>
+                    <md-button class="md-icon-button" >
+                        <md-icon md-font-set="material-icons" ng-click="search()">search</md-icon>
+                    </md-button>
+
+                </div>
 
                 <md-menu md-offset="0 42" md-position-mode="target-right target"  flex-offset-gt-xs="5" >
                     <md-button class="navbar-user" ng-click="$mdOpenMenu()">
