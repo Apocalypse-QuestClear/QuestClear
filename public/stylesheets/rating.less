@@ -1,0 +1,48 @@
+.rating {
+    .star-rating {
+        position: relative;
+        margin: 0 20px 0 0;
+        width: 102.88px;
+        height: 28.89px;
+
+        @media screen and (max-width: 599px) {
+            margin: 0 10px 0 0;
+        }
+
+        .star-rating-layer {
+            position: absolute;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+
+            .star {
+                padding: 1px;
+                color: #ddd;
+                font-size: 20px;
+                text-shadow: .05em .05em #aaa;
+                list-style-type: none;
+                display: inline-block;
+                outline: none !important;
+
+                &.filled {
+                    color: #fd0;
+                }
+            }
+
+            &.readonly .star.filled {
+                color: #fd0;
+            }
+        }
+
+        .star-rating-layer {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 102.88px;
+        }
+
+        .star-rating-layer-filled {
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    }
+}

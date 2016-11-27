@@ -45,7 +45,12 @@ angular.module('QuestClear').controller("AnswersController", function ($scope, $
             },
             link: function (scope, element, attrs) {
                 scope.$watch('rating', function (rating) {
-                    element.find('.star-rating-layer-filled').css('width', 102.88 * rating / 5);
+                    if (rating > 0) {
+                        element.find('.star-rating-layer-filled').css('width', 102.88 * rating / 5);
+                    }
+                    else {
+                        element.find('.star-rating-layer-filled').css('width', 0);
+                    }
                 });
 
                 scope.onStarClick = function (rating) {

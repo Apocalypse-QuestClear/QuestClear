@@ -3,6 +3,7 @@
 
         <span class="q-title"><a ui-sref="answers({aid: answer.aid})">{{answer.title}}</a></span>
         <span class="q-time">{{answer.time | date: 'yyyy-MM-dd HH:mm:ss'}}</span>
+        <star-rating rating="answer.rate"></star-rating>
 
         <div class="steps-container">
             <div ng-repeat-start="step in answer.steps" class="section" md-theme="white" flex>
