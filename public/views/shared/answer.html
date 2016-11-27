@@ -28,7 +28,7 @@
             </span>
             <span flex></span>
             <div layout="row" layout-align="end center">
-                <md-button class="md-icon-button button-watch" aria-label="关注">
+                <md-button class="md-icon-button button-watch" aria-label="关注" ng-click="watchAnswer()">
                     <i class="material-icons">visibility</i>
                 </md-button>
                 <md-button ng-if="!answer.accepted" class="md-icon-button button-accept" aria-label="接受任务" ng-click="acceptQuest()">

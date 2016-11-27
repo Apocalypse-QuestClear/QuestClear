@@ -11,8 +11,8 @@ module.exports = {
         // '/auth',
         // '/questions',
         // '/answers(/.*)?',
-        '/users/.*/watches/questions',
-        '/users/.*/watches/answers',
+        // '/users/.*/watches/questions',
+        // '/users/.*/watches/answers',
         // '/users/.*/quests',
         // '/users/.*/quests/.*',
         // '/users/.*/quests/.*/steps/.*'

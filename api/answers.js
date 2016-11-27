@@ -53,4 +53,12 @@ router.post('/:aid/comments', function (req, res, next) {
     });
 });
 
+router.post('/:aid/watch', function (req, res, next) {
+    request.post(req, res, '/users/' + req.cookies.uid + '/watches/answers/' + req.params.aid, {}).then(function (data) {
+        return res.json({});
+    }).catch(function (err) {
+        next(err);
+    });
+});
+
 module.exports = router;
