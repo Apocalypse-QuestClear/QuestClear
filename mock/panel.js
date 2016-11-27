@@ -25,7 +25,6 @@ router.post('/questions/:qid',function(req,res,next){
 
 router.post('/questions/:keywords', function (req, res, next) {
     params=req.param;
-    console.log(param);
     var card1={
         tittle:'怎样在Ubuntu 14.14搭建网络环境？',
         time:'2015-09-23',

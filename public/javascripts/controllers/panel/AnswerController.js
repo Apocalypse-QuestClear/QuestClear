@@ -2,7 +2,7 @@
  * Created by EdwardChor on 15/10/2016.
  */
 angular.module("QuestClear")
-    .controller("AnswerController",function($scope,$state,$mdDialog,$mdToast,panelService){
+    .controller("AnswerController",function($scope, $state, alertService, panelService){
 
         //$scope.quest=questInfo;
 
@@ -33,43 +33,10 @@ angular.module("QuestClear")
             panelService.answer(cnt).then(function(data){
                 $scope.message=data;
                 if(data['aid']){
-                    info='提交成功';
-                    $scope.showAlert(info);
+                    alertService.showAlert('提交成功');
                     $state.go('answers', {aid: data.aid});
                 }
-                // else{
-                //     info='提交失败';
-                //     $scope.showAlert(info)
-                // }
-            })
-                .catch(function(err){
-                    // console.log(err);
-                })
-        };
-
-        // showCustomToast = function(info) {
-        //     $mdToast.show({
-        //         hideDelay   : 3000,
-        //         position    : 'top right',
-        //         controller  : 'AnswerController',
-        //         templateUrl : 'views/panel/toast.html'
-        //     });
-        // };
-
-        $scope.showAlert = function(info) {
-            // Appending dialog to document.body to cover sidenav in docs app
-            // Modal dialogs should fully cover application
-            // to prevent interaction outside of dialog
-            $mdDialog.show(
-                $mdDialog.alert()
-                    .parent(angular.element(document.querySelector('#popupContainer')))
-                    .clickOutsideToClose(true)
-                    .title(info)
-                    .textContent(info)
-                    .ariaLabel('')
-                    .ok('朕知道了')
-                    .targetEvent()
-            );
+            });
         };
     })
     .directive('answerEditor',function(){

@@ -16,6 +16,7 @@ module.exports = {
         // '/users/.*/quests',
         // '/users/.*/quests/.*',
         // '/users/.*/quests/.*/steps/.*'
-        '/answers/.*/comments'
+        '/answers/.*/comments',
+        '/answers/.*/rate'
     ]
 };

@@ -1,6 +1,3 @@
-/**
- * Created by EdwardChor on 05/11/2016.
- */
 angular.module('QuestClear').factory('panelService',function(request){
     var service={};
 

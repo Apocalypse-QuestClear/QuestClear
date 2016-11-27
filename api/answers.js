@@ -21,11 +21,36 @@ router.get('/:aid', function(req, res, next) {
 
             answer.comments = comments;
 
+            var myComments = comments.filter((comment) => comment.uid == req.cookies.uid);
+
+            if (myComments.length > 0) {
+                answer.rating = myComments[0].rate;
+            }
+            else {
+                answer.rating = 0;
+            }
+
             return res.json(answer);
 
         }).catch(function (err) {
             next(err);
         });
+});
+
+router.post('/:aid/rate', function (req, res, next) {
+    request.post(req, res, '/answers/' + req.params.aid + '/rate', {rate: req.body.rate}).then(function (data) {
+        return res.json({});
+    }).catch(function (err) {
+        next(err);
+    });
+});
+
+router.post('/:aid/comments', function (req, res, next) {
+    request.post(req, res, '/answers/' + req.params.aid + '/comments', {content: req.body.content}).then(function (data) {
+        return res.json({});
+    }).catch(function (err) {
+        next(err);
+    });
 });
 
 module.exports = router;

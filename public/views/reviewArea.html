@@ -1,48 +1,45 @@
-<div>
-    <md-card class="review" md-colors="grey">
-        <form name="reviewForm" layout="column">
-
-            <div class="reviewDisplay">
-
-            </div>
-
-            <div class="reviewEditor" layout="column">
-                <md-input-container layout="row" flex>
-                    <label flex='10'>您的评分: {{ratingValue}}</label>
-                    <div flex-offset="10">
-                        <ul class="star-rating" ng-class="{readonly:readonly}" aria-readonly="false" >
-                            <li ng-repeat="star in stars" class="star" ng-class="{filled: star.filled}" ng-click="toggle($index)">
-                                <i class="fa fa-star"></i>
-                            </li>
-                        </ul>
-                    </div>
-
-                </md-input-container>
-
-                <md-input-container>
-                    <label>文字评价</label><textarea placeholder=" "  md-maxlength="120" rows="4" md-select-on-focus ng-model="content"></textarea>
-                </md-input-container>
-
-                <md-button flex-offset="80" class="md-icon-button" aria-label="Settings" ng-click="subComment()">
-                    <i class="material-icons">done</i>
+<div class="review">
+    <md-card class="review-card review-rating" md-colors="grey">
+        <div layout="column">
+            <div layout="row" layout-align="start center" layout-xs="column" layout-align-xs="start start">
+                <span class="rating-label">您的评分: </span>
+                <star-rating rating="review.rating" editable="true"></star-rating>
+                <md-button class="submit-button md-raised md-primary" ng-click="submitRating()" ng-disabled="ratingWaiting">
+                    <md-progress-circular ng-if="ratingWaiting" class="md-hue-1" md-mode="indeterminate" md-diameter="16px"></md-progress-circular>
+                    {{!ratingWaiting ? '提交' : '正在提交...'}}
                 </md-button>
-
             </div>
-        </form>
-        <label ng-show="records != undefined">历史评价：</label>
+        </div>
+    </md-card>
 
-        <div class="reviewRecord" layout="column" flex>
-            <div class="record" ng-repeat="r in records"  layout="column" flex disabled="true">
-                <span><star-rating aria-readonly="true"></star-rating> {{r.rate}}</span>
-                {{r.content}}
-                 <span ng-if="r.uid" class="q-uid">
-                     <i class="material-icons">people</i>
-                 <span>{{r.uid}}</span>
+    <md-card class="review-card review-comment" md-colors="grey">
+        <div layout="column" layout-align="start stretch">
+            <span>文字评价: </span>
+            <md-input-container>
+                <textarea placeholder=" "  md-maxlength="120" rows="4" md-select-on-focus ng-model="review.comment"></textarea>
+            </md-input-container>
+
+            <div layout="row">
+                <md-button class="submit-button md-raised md-primary" ng-click="submitComment()" ng-disabled="commentWaiting">
+                    <md-progress-circular ng-if="commentWaiting" class="md-hue-1" md-mode="indeterminate" md-diameter="16px"></md-progress-circular>
+                    {{!commentWaiting ? '提交' : '正在提交...'}}
+                </md-button>
+            </div>
+        </div>
+    </md-card>
+
+    <md-card class="review-card review-record" md-colors="grey" ng-repeat="r in records">
+        <div layout="column" flex>
+            <div layout="row" layout-align="start center">
+                <i class="material-icons">people</i>
+                <span class="c-username">{{r.username}}</span>
+                <span flex="5"></span>
+                <span class="c-time">{{r.time | date: 'yyyy-MM-dd HH:mm:ss'}}</span>
+            </div>
+            <div layout="column" flex disabled="true">
+                <star-rating rating="r.rate"></star-rating>
+                <span class="c-content">{{r.content}}</span>
             </span>
-
-            <span class="q-time">{{r.time | date: 'yyyy-MM-dd HH:mm:ss'}}</span>
-            <div class="light-hr"></div>
-            </div>
         </div>
     </md-card>
 </div>

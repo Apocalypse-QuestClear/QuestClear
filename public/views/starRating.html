@@ -1,5 +1,15 @@
-<ul class="star-rating" ng-class="{readonly:false}">
-    <li ng-repeat="star in r.stars" class="star" ng-class="{filled: star.filled}">
-        <i class="fa fa-star"></i>
-    </li>
-</ul>
+<div class="rating" layout="row" layout-align="start center">
+    <div class="star-rating">
+        <ul class="star-rating-layer" layout="row">
+            <li ng-repeat="star in [1, 2, 3, 4, 5]" class="star" ng-class="editable ? 'pointer' : ''" ng-click="onStarClick($index + 1)">
+                <i class="fa fa-star"></i>
+            </li>
+        </ul>
+        <ul class="star-rating-layer star-rating-layer-filled" layout="row">
+            <li ng-repeat="star in [1, 2, 3, 4, 5]" class="star filled" ng-class="editable ? 'pointer' : ''" ng-click="onStarClick($index + 1)">
+                <i class="fa fa-star"></i>
+            </li>
+        </ul>
+    </div>
+    <span>{{rating > 0 ? rating : '无'}}</span>
+</div>
