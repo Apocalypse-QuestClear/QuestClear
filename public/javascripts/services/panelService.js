@@ -78,5 +78,26 @@ angular.module('QuestClear').factory('panelService',function(request){
         return quests;
     };
 
+    service.searchByCategory=function(cate){
+        return request.post('/panel/querySearch',{
+            keywords:'',
+            category:cate,
+            uid:'',
+            limit:'',
+            after:''
+        })
+
+    };
+
+    service.searchByUid=function(uid){
+        return request.post('/panel/querySearch',{
+            keywords:'',
+            category:'',
+            uid:uid,
+            limit:'',
+            after:''
+        })
+    };
+
     return service;
 });

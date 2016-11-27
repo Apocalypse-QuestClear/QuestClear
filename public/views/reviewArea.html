@@ -1,0 +1,48 @@
+<div>
+    <md-card class="review" md-colors="grey">
+        <form name="reviewForm" layout="column">
+
+            <div class="reviewDisplay">
+
+            </div>
+
+            <div class="reviewEditor" layout="column">
+                <md-input-container layout="row" flex>
+                    <label flex='10'>您的评分: {{ratingValue}}</label>
+                    <div flex-offset="10">
+                        <ul class="star-rating" ng-class="{readonly:readonly}" aria-readonly="false" >
+                            <li ng-repeat="star in stars" class="star" ng-class="{filled: star.filled}" ng-click="toggle($index)">
+                                <i class="fa fa-star"></i>
+                            </li>
+                        </ul>
+                    </div>
+
+                </md-input-container>
+
+                <md-input-container>
+                    <label>文字评价</label><textarea placeholder=" "  md-maxlength="120" rows="4" md-select-on-focus ng-model="content"></textarea>
+                </md-input-container>
+
+                <md-button flex-offset="80" class="md-icon-button" aria-label="Settings" ng-click="subComment()">
+                    <i class="material-icons">done</i>
+                </md-button>
+
+            </div>
+        </form>
+        <label ng-show="records != undefined">历史评价：</label>
+
+        <div class="reviewRecord" layout="column" flex>
+            <div class="record" ng-repeat="r in records"  layout="column" flex disabled="true">
+                <span><star-rating aria-readonly="true"></star-rating> {{r.rate}}</span>
+                {{r.content}}
+                 <span ng-if="r.uid" class="q-uid">
+                     <i class="material-icons">people</i>
+                 <span>{{r.uid}}</span>
+            </span>
+
+            <span class="q-time">{{r.time | date: 'yyyy-MM-dd HH:mm:ss'}}</span>
+            <div class="light-hr"></div>
+            </div>
+        </div>
+    </md-card>
+</div>
