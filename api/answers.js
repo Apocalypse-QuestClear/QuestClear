@@ -61,4 +61,12 @@ router.post('/:aid/watch', function (req, res, next) {
     });
 });
 
+router.post('/:aid/edit', function (req, res, next) {
+    request.post(req, res, '/answers/' + req.params.aid + '/edits', req.body).then(function (data) {
+        return res.json({});
+    }).catch(function (err) {
+        next(err);
+    });
+});
+
 module.exports = router;

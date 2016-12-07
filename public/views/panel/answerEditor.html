@@ -1,19 +1,11 @@
-    <md-card >
-        <!--<img ng-src="{{imagePath}}" class="md-card-image" alt="Washed Out">-->
-            <div >
+    <md-card>
+            <div>
                 <form name="questForm" layout="column">
                     <div class="questInfo" layout="column">
                         <md-input-container flex flex-sm="20">
                             <label>回答标题</label> <input ng-model="title" placeholder=" ">
                         </md-input-container>
-                      <!--<div layout="row">-->
-                        <!--<span class="time .md-body-2" flex="50">提问时间:{{quest.time}}</span>-->
-                        <!--<span class="category .md-body-2" flex="50">类别:{{quest.category}}</span>-->
-                      <!--</div>-->
                     </div>
-                    <!--<label><h>具体步骤:</h></label>-->
-
-                    <!--<span>{{qid}}</span>-->
 
                     <div class="stepContainer" ng-repeat="step in steps" layout="column">
 
@@ -61,9 +53,6 @@
             </div>
 
         <md-card-actions layout="row" layout-align="end center">
-            <md-button class="md-icon-button" aria-label="Favorite">
-                <i class="material-icons">save</i>
-            </md-button>
             <md-button class="md-icon-button" aria-label="Settings" ng-click="submitAnswer()">
                 <i class="material-icons">done</i>
             </md-button>

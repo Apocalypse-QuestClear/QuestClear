@@ -53,6 +53,11 @@ angular.module('QuestClear').config(function($urlRouterProvider, $stateProvider)
             templateUrl: 'views/questions.html',
             controller: 'QuestionsController'
         })
+        .state('answerEdit',{
+            url:"/answers/:aid/edit",
+            templateUrl:'views/panel/answerEditor2.html',
+            controller:'AnswerEditController'
+        })
         .state('answers', {
             url: "/answers/:aid",
             templateUrl: 'views/answers.html',

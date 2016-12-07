@@ -42,73 +42,83 @@ md-button .logo{
             top:20px !important;
         }
     }
+}
 
-    .state-panel-answer{
+.state-panel-answer{
 
-        answer-editor{
+    .answer-container {
 
-            .questInfo {
-                margin:10px 0 !important;
-                .title{
-                    color: #259 !important;
-                }
-                .time,.category{
-                    margin:10px  0;
-                }
+        .questInfo {
+            margin:10px 0 !important;
+            .title{
+                color: #259 !important;
             }
-
-            .title-container {
-                md-switch {
-                    margin: 0;
-                }
-            }
-
-            textarea {
-                margin-top: 8px !important;
-                border-width: 1px !important;
-            }
-
-            .add-step-container {
-                cursor: pointer;
-
-                & > * {
-                    display: inline-block;
-                    vertical-align: middle;
-                }
-
-                .button-add-step {
-                    padding-left: 0;
-                    padding-right: 0;
-                    margin-left: -5px;
-                    margin-right: 0;
-                }
-            }
-
-            .stepContainer{
-                transition: height .5s ease-in-out;
-                overflow: hidden;
-
-                .stepTitle{
-                    width:400px;
-                }
-
-                &.ng-enter {
-                    height: 0;
-                }
-
-                &.ng-enter-active {
-                    height: 345px;
-                }
-
-                &.ng-leave {
-                    height: 345px;
-                }
-
-                &.ng-leave-active {
-                    height: 0;
-                }
+            .time,.category{
+                margin:10px  0;
             }
         }
 
+        .title-container {
+            md-switch {
+                margin: 0;
+            }
+        }
+
+        textarea {
+            margin-top: 8px !important;
+            border-width: 1px !important;
+        }
+
+        .add-step-container {
+            cursor: pointer;
+
+            & > * {
+                display: inline-block;
+                vertical-align: middle;
+            }
+
+            .button-add-step {
+                padding-left: 0;
+                padding-right: 0;
+                margin-left: -5px;
+                margin-right: 0;
+            }
+        }
+
+        .delete-step-container {
+            cursor: pointer;
+            margin-left: 5px;
+            margin-top: 6px;
+
+            & > * {
+                font-size: 14px !important;
+            }
+        }
+
+        .stepContainer{
+            transition: height .5s ease-in-out;
+            overflow: hidden;
+
+            .stepTitle{
+                width:400px;
+            }
+
+            &.ng-enter {
+                height: 0;
+            }
+
+            &.ng-enter-active {
+                height: 345px;
+            }
+
+            &.ng-leave {
+                height: 345px;
+            }
+
+            &.ng-leave-active {
+                height: 0;
+            }
+        }
     }
+
 }

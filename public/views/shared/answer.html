@@ -1,4 +1,4 @@
-<div class="answer-container" ng-controller="AnswerController">
+<div class="answer-container">
     <md-card class="question" md-colors="grey">
 
         <span class="q-title"><a ui-sref="answers({aid: answer.aid})">{{answer.title}}</a></span>
@@ -29,6 +29,9 @@
             </span>
             <span flex></span>
             <div layout="row" layout-align="end center">
+                <md-button class="md-icon-button button-edit" aria-label="编辑" ui-sref="answerEdit({aid: answer.aid})">
+                    <i class="material-icons">mode_edit</i>
+                </md-button>
                 <md-button class="md-icon-button button-watch" aria-label="关注" ng-click="watchAnswer()">
                     <i class="material-icons">visibility</i>
                 </md-button>

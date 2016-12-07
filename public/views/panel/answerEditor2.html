@@ -1,0 +1,82 @@
+<div class="state-panel-answer main-content">
+    <div class="answer-container"  layout-align="end center">
+        <md-card>
+            <div>
+                <form name="questForm" layout="column">
+                    <div class="questInfo" layout="column">
+                        <md-input-container flex flex-sm="20">
+                            <label>修改说明</label> <input ng-model="title" placeholder="请输入修改的主要内容或修改原因">
+                        </md-input-container>
+                        <md-input-container>
+                            <label>详细修改说明</label><textarea placeholder="请详细描述修改的主要内容或修改原因"  md-maxlength="120" rows="4" md-select-on-focus ng-model="content"></textarea>
+                        </md-input-container>
+                    </div>
+
+                    <div class="add-step-container" ng-click="addStep(0)">
+                        <md-button class="md-icon-button button-add-step" aria-label="Favorite">
+                            <i class="material-icons">note_add</i>
+                        </md-button>
+                        <span>添加步骤</span>
+                    </div>
+
+                    <div class="stepContainer" ng-repeat="step in steps" layout="column">
+
+                        <div layout="row" layout-align="start center">
+                            <h4>步骤{{$index + 1}}：</h4>
+                            <div class="delete-step-container" layout="row" layout-align="start center" ng-click="deleteStep($index)">
+                                <i class="material-icons">clear</i>
+                                <span>删除</span>
+                            </div>
+                        </div>
+
+                        <div class="title-container" layout-gt-sm="row" layout-sm="column">
+                            <md-input-container class="answerTitle md-block" layout="column" flex="50">
+                                <label>{{step.isItem ? "所需物品名称" : "步骤标题"}}</label>
+                                <input class="stepTitle" ng-model="step.title" placeholder=" ">
+                            </md-input-container>
+
+
+                            <div layout="row">
+                                <md-input-container class="md-block" flex flex-sm="30">
+                                    <md-switch ng-model="step.isItem" >该项为物品</md-switch>
+                                </md-input-container>
+
+                                <md-input-container ng-show="step.isItem" flex flex-sm="20">
+                                    <label>物品数量</label> <input ng-model="step.count" ng-show="step.isItem" placeholder=" ">
+                                </md-input-container>
+                            </div>
+                        </div>
+
+                        <div layout="column">
+                            <md-input-container>
+                                <label>详细说明</label><textarea placeholder=" "  md-maxlength="120" rows="4" md-select-on-focus ng-model="step.detail"></textarea>
+                            </md-input-container>
+                        </div>
+
+                        <md-button ng-show="" class="md-icon-button" aria-label="Favorite" ng-click="addStep()">
+                            <i class="material-icons">delete</i>
+                        </md-button>
+
+                        <div class="add-step-container" ng-click="addStep($index + 1)">
+                            <md-button class="md-icon-button button-add-step" aria-label="Favorite">
+                                <i class="material-icons">note_add</i>
+                            </md-button>
+                            <span>添加步骤</span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button class="md-icon-button" aria-label="Settings" ng-click="submitAnswer()">
+                    <i class="material-icons">done</i>
+                </md-button>
+            </md-card-actions>
+
+            <div ng-if="message" class="warning" layout-gt-sm="row">
+                <p>{{message.message}}</p>
+            </div>
+        </md-card>
+    </div>
+</div>
+

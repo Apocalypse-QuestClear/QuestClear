@@ -6,6 +6,7 @@ angular.module('QuestClear').controller("AnswersController", function ($scope, $
     request.get('/answers/' + $state.params.aid).then(function (data) {
         $scope.quest = data.question;
         $scope.answer = data;
+        $scope.answer.aid = $state.params.aid;
         $scope.records = data.comments;
         $scope.review.rating = data.rating;
     });
