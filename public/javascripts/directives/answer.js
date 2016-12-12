@@ -8,7 +8,6 @@ angular.module('QuestClear').directive('answer', function (request, alertService
         };
 
         scope.watchAnswer = function () {
-            console.log(scope.answer.aid);
             request.post('/answers/' + scope.answer.aid + '/watch', {}).then(function () {
                 alertService.showAlert('关注成功');
             }).catch(function (err) {

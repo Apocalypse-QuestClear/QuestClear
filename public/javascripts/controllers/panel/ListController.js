@@ -33,9 +33,18 @@ angular.module('QuestClear')
             $scope.quests = data;
         });
     })
-    .directive('questCard', function () {
+    .directive('questCard', function (request, alertService) {
         return {
-            templateUrl:'views/panel/card.html'
+            templateUrl:'views/panel/card.html',
+            link: function (scope, element, attrs) {
+                scope.watchQuestion = function () {
+                    request.post('/questions/' + scope.quest.qid + '/watch', {}).then(function () {
+                        alertService.showAlert('关注成功');
+                    }).catch(function (err) {
+                        alertService.showAlert(err);
+                    });
+                };
+            }
         }
     })
     .directive('searchBox',function(){

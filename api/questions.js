@@ -30,4 +30,12 @@ router.get('/:qid', function(req, res, next) {
         });
 });
 
+router.post('/:qid/watch', function (req, res, next) {
+    request.post(req, res, '/users/' + req.cookies.uid + '/watches/questions/' + req.params.qid, {}).then(function (data) {
+        return res.json({});
+    }).catch(function (err) {
+        next(err);
+    });
+});
+
 module.exports = router;

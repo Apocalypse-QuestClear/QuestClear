@@ -7,7 +7,14 @@ router.get('/:aid', function(req, res, next) {
     Promise.all([
         request.get(req, res, '/answers/' + req.params.aid),
         request.get(req, res, '/users/' + req.cookies.uid + '/quests'),
-        request.get(req, res, '/answers/' + req.params.aid + '/comments')
+        request.get(req, res, '/answers/' + req.params.aid + '/comments').then(function (comments) {
+            return Promise.all(comments.map(function (comment) {
+                return request.get(req, res, '/users/' + comment.uid).then(function (user) {
+                    comment.username = user.username;
+                    return comment;
+                });
+            }));
+        })
     ])
         .then(function (args) {
             var answer = args[0];
