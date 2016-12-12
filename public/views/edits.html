@@ -1,0 +1,25 @@
+<div ng-repeat="edit in edits" layout="column">
+    <md-card class="question" md-colors="grey">
+
+        <span class="q-title"><a ui-sref="edit({eid: edit.eid})">{{edit.title}}</a></span>
+        <span class="q-time">{{edit.time | date: 'yyyy-MM-dd HH:mm:ss'}}</span>
+        <span class="e-content">{{edit.content}}</span>
+
+        <md-card-actions layout="row" layout-align="start center" layout-xs="column" layout-align-xs="center stretch">
+            <span ng-if="edit.uid" class="q-uid">
+                <i class="material-icons">people</i>
+                <span>{{edit.username}}</span>
+            </span>
+            <span flex></span>
+            <md-button ng-if="edit.status === 'open'" class="md-primary" md-colors="{background: 'blue'}">
+                待处理
+            </md-button>
+            <md-button ng-if="edit.status === 'accept'" class="md-primary" md-colors="{color: 'green'}">
+                已接受
+            </md-button>
+            <md-button ng-if="edit.status === 'reject'" class="md-primary" md-colors="{color: 'red'}">
+                已拒绝
+            </md-button>
+        </md-card-actions>
+    </md-card>
+</div>

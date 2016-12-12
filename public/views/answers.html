@@ -1,7 +1,18 @@
 <div class="state-answers main-content">
-    <quest-card></quest-card>
-    <div class="light-hr"></div>
-    <answer></answer>
-    <review-area>
-    </review-area>
+    <md-tabs md-dynamic-height md-border-bottom>
+        <md-tab label="回答">
+            <md-content">
+                <quest-card></quest-card>
+                <div class="light-hr"></div>
+                <answer></answer>
+                <review-area>
+                </review-area>
+            </md-content>
+        </md-tab>
+        <md-tab label="修改请求">
+            <md-content class="md-padding">
+                <edits></edits>
+            </md-content>
+        </md-tab>
+    </md-tabs>
 </div>

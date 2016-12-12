@@ -7,6 +7,6 @@ router.use('/auth', require('./auth'));
 router.use('/panel',require('./panel'));
 router.use('/users', require('./users'));
 router.use('/answers', require('./answers'));
-
+router.use('/answers/:aid/edits', require('./edits'));
 
 module.exports = router;

@@ -76,4 +76,6 @@ router.post('/:aid/edit', function (req, res, next) {
     });
 });
 
+router.use(require('./edits'));
+
 module.exports = router;

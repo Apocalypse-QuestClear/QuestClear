@@ -1,6 +1,3 @@
-/**
- * Created by EdwardChor on 11/10/2016.
- */
 angular.module('QuestClear')
     .controller("ListController",function($scope, $state, panelService, request){
 

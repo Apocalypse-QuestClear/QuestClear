@@ -11,6 +11,10 @@ angular.module('QuestClear').controller("AnswersController", function ($scope, $
         $scope.review.rating = data.rating;
     });
 
+    request.get('/answers/' + $state.params.aid + "/edits").then(function (data) {
+        $scope.edits = data;
+    });
+
     $scope.submitRating = function () {
         request.post('/answers/' + $state.params.aid + '/rate', {rate: $scope.review.rating}).then(function () {
             alertService.showAlert('提交成功').then(function () {
