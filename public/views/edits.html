@@ -1,7 +1,7 @@
 <div ng-repeat="edit in edits" layout="column">
     <md-card class="question" md-colors="grey">
 
-        <span class="q-title"><a ui-sref="edit({eid: edit.eid})">{{edit.title}}</a></span>
+        <span class="q-title"><a ui-sref="edit({aid: answer.aid, eid: edit.eid})">{{edit.title}}</a></span>
         <span class="q-time">{{edit.time | date: 'yyyy-MM-dd HH:mm:ss'}}</span>
         <span class="e-content">{{edit.content}}</span>
 

@@ -1,0 +1,55 @@
+<div class="main-content">
+    <md-card class="question" md-colors="grey">
+
+        <span class="q-title"><a>{{edit.title}}</a></span>
+        <span class="q-time">{{edit.time | date: 'yyyy-MM-dd HH:mm:ss'}}</span>
+        <span class="e-content">{{edit.content}}</span>
+
+        <div class="steps-container">
+            <div ng-repeat-start="step in edit.steps" class="section" md-theme="white" flex>
+                <md-toolbar class="section-toolbar">
+                    <div class="md-toolbar-tools">
+                        <h2>
+                            <diff content="step.title"></diff>
+                        </h2>
+                        <span ng-if="step.isItem.new && !step.isItem.modified && !step.count.modified" class="item-count">x{{step.count.new}}</span>
+                        <span ng-if="step.isItem.new && (step.isItem.modified || step.count.modified)" class="item-count diff-new">x{{step.count.new}}</span>
+                        <span ng-if="step.isItem.old && (step.isItem.modified || step.count.modified)" class="item-count diff-old">x{{step.count.old}}</span>
+                    </div>
+                </md-toolbar>
+                <md-content class="section-content" layout="column" layout-align="start stretch">
+                    <p>
+                        <diff content="step.detail"></diff>
+                    </p>
+                </md-content>
+            </div>
+            <div ng-repeat-end="" ng-if="$index !== edit.steps.length - 1" class="divider"></div>
+        </div>
+
+        <md-card-actions layout="row" layout-align="start center" layout-xs="column" layout-align-xs="center stretch">
+            <span ng-if="edit.uid" class="q-uid">
+                <i class="material-icons">people</i>
+                <span>{{edit.username}}</span>
+            </span>
+            <span flex></span>
+            <div ng-if="edit.status === 'open'">
+                <md-button ng-if="edit.answerUid != user.uid" class="md-primary" md-colors="{background: 'blue'}">
+                    待处理
+                </md-button>
+                <md-button ng-if="edit.answerUid == user.uid" class="md-primary" md-colors="{background: 'green'}" ng-click="accept()">
+                    接受
+                </md-button>
+                <md-button ng-if="edit.answerUid == user.uid" class="md-primary" md-colors="{background: 'red'}" ng-click="reject()">
+                    拒绝
+                </md-button>
+            </div>
+
+            <md-button ng-if="edit.status === 'accept'" class="md-primary" md-colors="{color: 'green'}">
+                已接受
+            </md-button>
+            <md-button ng-if="edit.status === 'reject'" class="md-primary" md-colors="{color: 'red'}">
+                已拒绝
+            </md-button>
+        </md-card-actions>
+    </md-card>
+</div>

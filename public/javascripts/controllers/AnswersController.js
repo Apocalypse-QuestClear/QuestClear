@@ -1,15 +1,19 @@
 angular.module('QuestClear').controller("AnswersController", function ($scope, $state, request, alertService) {
+    function load() {
+        request.get('/answers/' + $state.params.aid).then(function (data) {
+            $scope.quest = data.question;
+            $scope.answer = data;
+            $scope.answer.aid = $state.params.aid;
+            $scope.records = data.comments;
+            $scope.review.rating = data.rating;
+        });
+    }
+
     $scope.review = {
         rating: 0
     };
 
-    request.get('/answers/' + $state.params.aid).then(function (data) {
-        $scope.quest = data.question;
-        $scope.answer = data;
-        $scope.answer.aid = $state.params.aid;
-        $scope.records = data.comments;
-        $scope.review.rating = data.rating;
-    });
+    load();
 
     request.get('/answers/' + $state.params.aid + "/edits").then(function (data) {
         $scope.edits = data;
@@ -18,7 +22,7 @@ angular.module('QuestClear').controller("AnswersController", function ($scope, $
     $scope.submitRating = function () {
         request.post('/answers/' + $state.params.aid + '/rate', {rate: $scope.review.rating}).then(function () {
             alertService.showAlert('提交成功').then(function () {
-                window.location.reload();
+                load();
             });
         }).catch(function (err) {
             alertService.showAlert(err);
@@ -28,7 +32,7 @@ angular.module('QuestClear').controller("AnswersController", function ($scope, $
     $scope.submitComment = function () {
         request.post('/answers/' + $state.params.aid + '/comments', {content: $scope.review.comment}).then(function () {
             alertService.showAlert('提交成功').then(function () {
-                window.location.reload();
+                load();
             });
         }).catch(function (err) {
             alertService.showAlert(err);
