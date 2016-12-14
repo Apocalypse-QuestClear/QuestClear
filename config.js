@@ -18,6 +18,6 @@ module.exports = {
         // '/users/.*/quests/.*/steps/.*'
         // '/answers/.*/comments',
         // '/answers/.*/rate'
-        '/answers/.*/edits(/.*)?'
+        // '/answers/.*/edits(/.*)?'
     ]
 };
