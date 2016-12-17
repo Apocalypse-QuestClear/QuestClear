@@ -19,14 +19,7 @@ router.get('/:aid/edits', function(req, res, next) {
 });
 
 router.get('/:aid/edits/:eid', function(req, res, next) {
-    Promise.all([
-        request.get(req, res, '/answers/' + req.params.aid),
-        request.get(req, res, '/answers/' + req.params.aid + '/edits/' + req.params.eid)
-    ]).then(function (args) {
-        var answer = args[0];
-        var edit = args[1];
-        edit.answerUid = answer.uid;
-
+    request.get(req, res, '/answers/' + req.params.aid + '/edits/' + req.params.eid).then(function (edit) {
         return request.get(req, res, '/users/' + edit.uid).then(function (user) {
             edit.username = user.username;
             return edit;

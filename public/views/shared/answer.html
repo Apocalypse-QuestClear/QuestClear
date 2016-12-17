@@ -29,7 +29,7 @@
             </span>
             <span flex></span>
             <div layout="row" layout-align="end center">
-                <md-button class="md-icon-button button-edit" aria-label="编辑" ui-sref="answerEdit({aid: answer.aid})">
+                <md-button class="md-icon-button button-edit" aria-label="编辑" ui-sref="answerEdit({aid: answer.aid, version: answer.version})">
                     <i class="material-icons">mode_edit</i>
                 </md-button>
                 <md-button class="md-icon-button button-watch" aria-label="关注" ng-click="watchAnswer()">

@@ -54,7 +54,7 @@ angular.module('QuestClear').config(function($urlRouterProvider, $stateProvider)
             controller: 'QuestionsController'
         })
         .state('answerEdit',{
-            url:"/answers/:aid/edit",
+            url:"/answers/:aid/edit?version",
             templateUrl:'views/panel/answerEditor2.html',
             controller:'AnswerEditController'
         })

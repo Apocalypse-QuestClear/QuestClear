@@ -21,11 +21,12 @@ angular.module("QuestClear")
             request.post('/answers/' + $state.params.aid + '/edit', {
                 title: $scope.title,
                 content: $scope.content,
+                version: $state.params.version,
                 steps: $scope.steps
             }).then(function(data){
                 $scope.message = '';
                 alertService.showAlert('提交成功');
-                $state.go('answers', {aid: data.aid});
+                $state.go('answers', {aid: $state.params.aid});
             }).catch(function (err) {
                 $scope.message = err;
             });

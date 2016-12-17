@@ -12,7 +12,9 @@ router.get('/', function(req, res, next) {
                     request.get(req, res, '/users/' + req.cookies.uid + '/quests/' + item.aid),
                     request.get(req, res, '/answers/' + item.aid)
                 ]).then(function (args) {
-                    return _.merge(args[0], args[1], item);
+                    var quest = _.merge(args[0], item);
+                    quest.title = args[1].title;
+                    return quest;
                 });
             }));
         }).then(function (data) {

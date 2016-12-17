@@ -33,13 +33,13 @@
             </span>
             <span flex></span>
             <div ng-if="edit.status === 'open'">
-                <md-button ng-if="edit.answerUid != user.uid" class="md-primary" md-colors="{background: 'blue'}">
+                <md-button ng-if="!edit.isAuthor" class="md-primary" md-colors="{background: 'blue'}">
                     待处理
                 </md-button>
-                <md-button ng-if="edit.answerUid == user.uid" class="md-primary" md-colors="{background: 'green'}" ng-click="accept()">
+                <md-button ng-if="edit.isAuthor" class="md-primary" md-colors="{background: 'green'}" ng-click="accept()">
                     接受
                 </md-button>
-                <md-button ng-if="edit.answerUid == user.uid" class="md-primary" md-colors="{background: 'red'}" ng-click="reject()">
+                <md-button ng-if="edit.isAuthor" class="md-primary" md-colors="{background: 'red'}" ng-click="reject()">
                     拒绝
                 </md-button>
             </div>
